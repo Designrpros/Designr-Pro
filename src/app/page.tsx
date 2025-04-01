@@ -56,16 +56,6 @@ const projects = [
     description: "An artist webpage for LIORA, designed to display her creative works, artistic vision, and personal style through an engaging and visually appealing interface.",
   },
   {
-    name: "Designr.pro",
-    url: "https://designrpro.vercel.app",
-    description: "The personal brand homepage and CV of a professional designer, showcasing various design projects, work philosophy, and professional experience.",
-  },
-  {
-    name: "Alcatelz",
-    url: "https://www.alcatelz.com/",
-    description: "A personal portfolio page displaying various projects and outlining the creator's work philosophy.",
-  },
-  {
     name: "Låne Lageret",
     url: "https://laanelageret.vercel.app",
     description: "A Bua-inspired concept for Akthe, Låne Lageret is a community-driven initiative that provides a lending library for tools, equipment, and resources. Designed to promote sustainability and accessibility, this platform allows individuals to borrow items for their projects, fostering collaboration and reducing waste within the Akthe community.",
@@ -74,6 +64,16 @@ const projects = [
     name: "BærumKart",
     url: "https://baerumkart.vercel.app",
     description: "Inspired by UT.no, BærumKart is a digital mapping platform tailored for the Bærum region. It offers detailed maps and guides for outdoor activities, including hiking trails, cultural landmarks, and community events, encouraging residents and visitors to explore Bærum’s natural beauty and local attractions.",
+  },
+  {
+    name: "Designr.pro",
+    url: "https://designrpro.vercel.app",
+    description: "The personal brand homepage and CV of a professional designer, showcasing various design projects, work philosophy, and professional experience.",
+  },
+  {
+    name: "Alcatelz",
+    url: "https://www.alcatelz.com/",
+    description: "A personal portfolio page displaying various projects and outlining the creator's work philosophy.",
   },
 ];
 
@@ -215,8 +215,8 @@ export default function Home() {
           <span style={{ fontWeight: 800 }}>VEGAR BERENTSEN:</span> Designer & Developer
         </HeroTitle>
         <HeroSubtitle className="font-sans">
-          Welcome to Designr.Pro, my digital home where I showcase my skills, creativity, and dedication to web development. This site, built with React, is a portfolio and a playground for exploring dynamic, interactive web experiences.{' '}
-          <HighlightedText>Currently developing Mapr, an app for macOS and iOS.</HighlightedText>
+          Welcome to Designr.Pro, my digital home where I showcase my skills, creativity, and dedication to web development.{' '}
+          <HighlightedText>Currently working at Studio51 and developing Mapr, an app for iOS macOS and visionOS.</HighlightedText>
         </HeroSubtitle>
         <AuthorText className="font-sans">Based in Østerås, Norway</AuthorText>
         <Link href="/contact">
