@@ -57,7 +57,7 @@ const projects = [
   },
   {
     name: "Designr.pro",
-    url: "https://www.designr.pro",
+    url: "https://designrpro.vercel.app",
     description: "The personal brand homepage and CV of a professional designer, showcasing various design projects, work philosophy, and professional experience.",
   },
   {
@@ -67,7 +67,7 @@ const projects = [
   },
   {
     name: "Låne Lageret",
-    url: "https://www.alcatelz.com/",
+    url: "https://laanelageret.vercel.app",
     description: "A Bua-inspired concept for Akthe, Låne Lageret is a community-driven initiative that provides a lending library for tools, equipment, and resources. Designed to promote sustainability and accessibility, this platform allows individuals to borrow items for their projects, fostering collaboration and reducing waste within the Akthe community.",
   },
   {
