@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
@@ -91,13 +92,38 @@ const HeroSection = styled.section`
 `;
 
 const HeroTitle = styled.h1`
-  font-size: 3rem;
+  font-size: 4rem; /* Larger font size */
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.2; /* Allow natural line breaking */
   margin-bottom: 1rem;
   color: #292a2d; /* Dark gray for headlines */
+  display: block; /* Ensure the title takes the full width */
+  @media (max-width: 1024px) {
+    font-size: 3rem; /* Slightly smaller for tablets */
+  }
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 2.5rem; /* Smaller for mobile */
+  }
+  @media (max-width: 480px) {
+    font-size: 2rem; /* Even smaller for very small screens */
+  }
+
+  /* Disable animation for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .typewriter {
+      border-right: none;
+    }
+  }
+`;
+
+const TypewriterText = styled.span`
+  display: inline-block;
+  border-right: 3px solid #292a2d; /* Cursor effect */
+  @media (max-width: 768px) {
+    border-right: 2px solid #292a2d;
+  }
+  @media (max-width: 480px) {
+    border-right: 1px solid #292a2d;
   }
 `;
 
@@ -111,6 +137,9 @@ const HeroSubtitle = styled.p`
   margin-bottom: 1.5rem;
   color: #292a2d; /* Dark gray for body text */
   max-width: 600px;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const AuthorText = styled.p`
@@ -118,6 +147,9 @@ const AuthorText = styled.p`
   font-weight: 600;
   color: #292a2d; /* Dark gray for author name */
   margin-bottom: 1.5rem;
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
 `;
 
 const CTAButton = styled.button`
@@ -132,6 +164,10 @@ const CTAButton = styled.button`
   &:hover {
     transform: scale(1.05);
   }
+  @media (max-width: 768px) {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
+  }
 `;
 
 // Portfolio Section Styles
@@ -139,6 +175,9 @@ const PortfolioSection = styled.section`
   padding: 4rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
 `;
 
 const PortfolioTitle = styled.h2`
@@ -149,6 +188,9 @@ const PortfolioTitle = styled.h2`
   padding: 0.5rem 1rem;
   display: inline-block;
   margin-bottom: 1rem;
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const PortfolioItem = styled.div`
@@ -159,6 +201,11 @@ const PortfolioItem = styled.div`
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  @media (max-width: 768px) {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const PortfolioItemImage = styled.img`
@@ -166,6 +213,10 @@ const PortfolioItemImage = styled.img`
   height: 100px;
   object-fit: cover;
   border-radius: 0.5rem;
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 80px;
+  }
 `;
 
 const PortfolioItemContent = styled.div`
@@ -180,12 +231,18 @@ const PortfolioItemTitle = styled.h3`
   padding: 0.25rem 0.5rem;
   display: inline-block;
   margin-bottom: 0.5rem;
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const PortfolioItemDescription = styled.p`
   font-size: 1rem;
   color: #292a2d; /* Black text */
   margin-bottom: 0.5rem;
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+  }
 `;
 
 const PortfolioItemLink = styled.a`
@@ -196,6 +253,9 @@ const PortfolioItemLink = styled.a`
   &:hover {
     color: #fddeb4; /* Warm peach on hover */
   }
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
 `;
 
 const Footer = styled.footer`
@@ -204,15 +264,56 @@ const Footer = styled.footer`
   padding: 2rem;
   margin-top: 2rem;
   border-top: 1px solid #b0c4d1; /* Slightly darker shade of the background for the border */
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 export default function Home() {
+  const fullTitle = "VEGAR BERENTSEN: Designer & Developer";
+  const [displayedText, setDisplayedText] = useState('');
+  const [isTyping, setIsTyping] = useState(true);
+
+  useEffect(() => {
+    let index = 0;
+    const typingSpeed = 100; // Speed in milliseconds per character
+
+    const type = () => {
+      if (index < fullTitle.length) {
+        setDisplayedText(fullTitle.substring(0, index + 1));
+        index++;
+        setTimeout(type, typingSpeed);
+      } else {
+        setIsTyping(false); // Stop blinking cursor when typing is complete
+      }
+    };
+
+    // Start typing animation
+    type();
+
+    // Cleanup on unmount
+    return () => {
+      setDisplayedText('');
+      setIsTyping(true);
+    };
+  }, []);
+
   return (
     <Wrapper>
       {/* Hero Section */}
       <HeroSection>
         <HeroTitle className="font-heading">
-          <span style={{ fontWeight: 800 }}>VEGAR BERENTSEN:</span> Designer & Developer
+          <TypewriterText className="typewriter">
+            {displayedText.replace('Designer & Developer', '')}
+            {displayedText.includes('Designer & Developer') ? (
+              <span>
+                <br />
+                Designer & Developer
+              </span>
+            ) : (
+              <span> </span> // Blinking cursor space
+            )}
+          </TypewriterText>
         </HeroTitle>
         <HeroSubtitle className="font-sans">
           Welcome to Designr.Pro, my digital home where I showcase my skills, creativity, and dedication to app and web development.{' '}
