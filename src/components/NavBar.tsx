@@ -4,48 +4,45 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 const NavBarContainer = styled.nav`
-  background-color: #cad9e4; /* Soft blue-gray background */
-  padding: 1rem 2rem;
-  max-width: 1200px;
+  background-color: #cad9e4;
+  padding: 1rem;
   margin: 0 auto;
   display: flex;
-  align-items: center; /* Vertically aligns all children */
-`;
-
-const LogoLink = styled(Link)`
-  margin-right: 2rem; /* Fixed space between Designr.Pro and nav links */
-  flex-shrink: 0; /* Prevents Designr.Pro from shrinking or moving */
+  align-items: center;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+  &::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+  }
+  
+  @media (min-width: 768px) {
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    justify-content: space-between;
+    overflow-x: hidden;
+  }
 `;
 
 const NavLinks = styled.div`
   display: flex;
   gap: 1.5rem;
-  align-items: center; /* Vertically aligns the links */
-  justify-content: flex-end; /* Pushes links to the right */
-  flex-grow: 1; /* Takes up remaining space */
-
-  /* Make it horizontally scrollable on mobile */
-  @media (max-width: 768px) {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    padding-bottom: 0.5rem; /* Optional: adds space for scrollbar */
-
-    /* Hide scrollbar for cleaner look (optional) */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-    &::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, and Opera */
-    }
+  white-space: nowrap; /* Prevent link wrapping */
+  margin-left: 1.5rem;
+  
+  @media (min-width: 768px) {
+    margin-left: 0;
   }
 `;
 
 const NavLink = styled.a`
-  color: #292a2d; /* Dark gray text */
+  color: #292a2d;
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
+  padding: 0.5rem 0;
   &:hover {
     text-decoration: underline;
   }
@@ -54,9 +51,9 @@ const NavLink = styled.a`
 export default function NavBar() {
   return (
     <NavBarContainer>
-      <LogoLink href="/">
+      <Link href="/">
         <NavLink>Designr.Pro</NavLink>
-      </LogoLink>
+      </Link>
       <NavLinks>
         <Link href="/about"><NavLink>About</NavLink></Link>
         <Link href="/contact"><NavLink>Contact</NavLink></Link>
