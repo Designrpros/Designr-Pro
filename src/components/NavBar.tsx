@@ -9,13 +9,36 @@ const NavBarContainer = styled.nav`
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Vertically aligns all children */
+`;
+
+const LogoLink = styled(Link)`
+  margin-right: 2rem; /* Fixed space between Designr.Pro and nav links */
+  flex-shrink: 0; /* Prevents Designr.Pro from shrinking or moving */
 `;
 
 const NavLinks = styled.div`
   display: flex;
   gap: 1.5rem;
+  align-items: center; /* Vertically aligns the links */
+  justify-content: flex-end; /* Pushes links to the right */
+  flex-grow: 1; /* Takes up remaining space */
+
+  /* Make it horizontally scrollable on mobile */
+  @media (max-width: 768px) {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    padding-bottom: 0.5rem; /* Optional: adds space for scrollbar */
+
+    /* Hide scrollbar for cleaner look (optional) */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, and Opera */
+    }
+  }
 `;
 
 const NavLink = styled.a`
@@ -31,9 +54,9 @@ const NavLink = styled.a`
 export default function NavBar() {
   return (
     <NavBarContainer>
-      <Link href="/">
+      <LogoLink href="/">
         <NavLink>Designr.Pro</NavLink>
-      </Link>
+      </LogoLink>
       <NavLinks>
         <Link href="/about"><NavLink>About</NavLink></Link>
         <Link href="/contact"><NavLink>Contact</NavLink></Link>
