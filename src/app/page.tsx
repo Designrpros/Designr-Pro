@@ -216,7 +216,7 @@ export default function Home() {
         </HeroTitle>
         <HeroSubtitle className="font-sans">
           Welcome to Designr.Pro, my digital home where I showcase my skills, creativity, and dedication to app and web development.{' '}
-          <HighlightedText>Currently working at Studio51 and developing Mapr, an app for iOS macOS and visionOS.</HighlightedText>
+          <HighlightedText>Currently working at Studio51 and developing Mapr, an app for iOS, macOS and visionOS.</HighlightedText>
         </HeroSubtitle>
         <AuthorText className="font-sans">Based in Østerås, Norway</AuthorText>
         <Link href="/contact">
