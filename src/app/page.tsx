@@ -47,6 +47,11 @@ const projects = [
     description: "A construction and renovation company based in Bærum, specializing in building renewal projects. This was one of the developer's first external projects.",
   },
   {
+    name: "Melodex",
+    url: "https://melodex-seven.vercel.app",
+    description: "Your guide to mastering music production.",
+  },
+  {
     name: "Cinematographer Portfolio",
     url: "https://cinematographer2.vercel.app",
     description: "A portfolio showcasing the work of a cinematographer, featuring stunning visuals and projects that highlight their expertise in filmmaking and visual storytelling.",
