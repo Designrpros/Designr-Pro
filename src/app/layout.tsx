@@ -1,6 +1,6 @@
 import './globals.css';
 import { Inter, Montserrat } from 'next/font/google';
-import NavBar from '../components/NavBar'; // Import the NavBar component
+import NavBar from '../components/NavBar';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const montserrat = Montserrat({
@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 
 export const metadata = {
   title: 'Designr.pro',
-  description: 'Unleash your vivid imagination with Designr.pro',
+  description: 'App and Website Portfolio for Vegar Berentsen',
 };
 
 export default function RootLayout({
@@ -28,9 +28,21 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        {/* Google Analytics Script */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Z5EH0V3ZQ"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-98HRKN6MFS');
+            `,
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${montserrat.variable}`}>
-        <NavBar /> {/* Add the NavBar here */}
+        <NavBar />
         {children}
       </body>
     </html>
