@@ -12,8 +12,8 @@ interface CategoryState {
 // Project categories with descriptions
 const projectCategories = [
   {
-    name: 'AppStore Apps',
-    description: 'Functional applications and tools designed to solve specific problems or enhance user experiences.',
+    name: 'Mobile Apps',
+    description: 'Innovative mobile applications for iOS, macOS, and visionOS, solving unique challenges with intuitive designs.',
     projects: [
       {
         name: 'Mapr',
@@ -29,7 +29,7 @@ const projectCategories = [
   },
   {
     name: 'Web Apps',
-    description: 'Functional applications and tools designed to solve specific problems or enhance user experiences.',
+    description: 'Web-based platforms fostering community collaboration and regional exploration.',
     projects: [
       {
         name: 'Låne Lageret',
@@ -45,7 +45,7 @@ const projectCategories = [
   },
   {
     name: 'Learning Resources',
-    description: 'Educational platforms and tools to help users acquire new skills or knowledge.',
+    description: 'Interactive tools and platforms for developing creative and technical skills.',
     projects: [
       {
         name: 'Melodex',
@@ -70,8 +70,8 @@ const projectCategories = [
     ],
   },
   {
-    name: 'Portfolios',
-    description: 'Showcases of creative and professional work for individuals or brands.',
+    name: 'Creative Portfolios',
+    description: 'Dynamic showcases of artistic and professional work for individuals and brands.',
     projects: [
       {
         name: 'Cinematographer Portfolio',
@@ -97,7 +97,7 @@ const projectCategories = [
   },
   {
     name: 'Community Initiatives',
-    description: 'Projects focused on social impact and community engagement.',
+    description: 'Impactful projects promoting social engagement and well-being in local communities.',
     projects: [
       {
         name: 'Akthe',
@@ -111,14 +111,14 @@ const projectCategories = [
       },
       {
         name: 'Høl i CVen',
-        url: 'https://h-l-i-c-ven.vercel.app',
+        url: 'https://holicven.vercel.app',
         description: 'A coffee shop initiative under Akthe, providing employment opportunities and support for individuals in need, aiming to integrate them into the workforce and community.',
       },
     ],
   },
   {
-    name: 'Business Websites',
-    description: 'Websites developed for commercial enterprises and services.',
+    name: 'Commercial Websites',
+    description: 'Professional websites for businesses, highlighting services and achievements.',
     projects: [
       {
         name: 'Brodrene Ervik',
@@ -133,12 +133,12 @@ const projectCategories = [
     ],
   },
   {
-    name: 'Projects',
-    description: 'Educational platforms and tools to help users acquire new skills or knowledge.',
+    name: 'Special Projects',
+    description: 'Unique initiatives spanning virtual reality and cultural community events.',
     projects: [
       {
         name: 'Prima',
-        url: 'https://prima-umber.vercel.app',
+        url: 'https://prima-vr.vercel.app',
         description: 'A platform offering VR experiences aimed at enhancing the lifestyle and wellness of older adults.',
       },
       {
