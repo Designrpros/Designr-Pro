@@ -23,7 +23,12 @@ const projectCategories = [
       {
         name: 'QRHue',
         url: 'https://apps.apple.com/no/app/qrhue/id6746092245',
-        description: 'Create stunning QR codes with ease using QRHue! Unleash your creativity with vibrant colors, transforming any link, text, or URL into a beautiful, custom QR code in just a few taps. Enjoy vivid customization with a spectrum of foreground and background colors, toggle between rounded or square shapes, and fine-tune corner radius. With an intuitive interface, export and share QR codes with a transparent background. Save and revisit designs with a sleek history feature, perfect for sharing websites, contact info, or special messages in style.',
+        description: 'Create stunning QR codes with ease using QRHue! Unleash your creativity with vibrant colors, transforming any link, text, or URL into a custom QR code in just a few taps. Enjoy vivid customization with a spectrum of foreground and background colors, toggle between rounded or square shapes, and fine-tune corner radius. With an intuitive interface, export and share QR codes with a transparent background. Save and revisit designs with a sleek history feature, perfect for sharing websites, contact info, or special messages in style.',
+      },
+      {
+        name: 'TextClip',
+        url: 'https://apps.apple.com/no/app/textclip/id6746357735?mt=12',
+        description: 'A powerful Mac OCR app that effortlessly extracts text from images, PDFs, websites, or videos. TextClip’s intuitive interface allows users to select screen regions for instant text recognition, copying results to the clipboard for use in any macOS app. Operating offline for privacy, it requires no special skills, making it ideal for students, professionals, and anyone needing fast, secure text extraction.'
       },
     ],
   },
