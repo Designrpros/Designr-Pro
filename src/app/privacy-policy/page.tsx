@@ -1,6 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import styled from 'styled-components';
+
+// Define type for openSections
+interface ToggleState {
+  [key: string]: boolean;
+}
 
 // Styled components
 const PrivacyContainer = styled.div`
@@ -38,6 +44,20 @@ const Section = styled.section`
   width: 100%;
 `;
 
+const SectionHeader = styled.div`
+  background-color: #e1e9f0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    background-color: #d1dde8;
+  }
+`;
+
 const SectionTitle = styled.h2`
   font-size: 1.8rem;
   font-weight: 600;
@@ -45,10 +65,19 @@ const SectionTitle = styled.h2`
   background-color: #fddeb4; /* Tinted yellow background */
   padding: 0.5rem 1rem;
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   @media (max-width: 768px) {
     font-size: 1.5rem;
   }
+`;
+
+const ToggleButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #292a2d;
+  cursor: pointer;
+  font-weight: 600;
 `;
 
 const SectionContent = styled.div`
@@ -79,26 +108,50 @@ const PolicyListItem = styled.li`
 `;
 
 export default function PrivacyPolicy() {
-  return (
-    <PrivacyContainer>
-      <PrivacyTitle className="font-heading">Privacy Policy</PrivacyTitle>
+  const [openSections, setOpenSections] = useState<ToggleState>({
+    'General Privacy Information': false,
+    'TextClip Privacy': false,
+    'Mapr Privacy': false,
+  });
 
-      {/* Introduction Section */}
-      <Section>
-        <SectionTitle className="font-heading">Introduction</SectionTitle>
-        <SectionContent>
+  const toggleSection = (sectionName: string) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [sectionName]: !prev[sectionName],
+    }));
+  };
+
+  const privacySections = [
+    {
+      name: 'General Privacy Information',
+      content: (
+        <>
           <PolicyText>
-            Welcome to TextClip, a macOS app developed by Vegar Berentsen. This Privacy Policy outlines how we handle your information when you use TextClip, particularly in relation to its screen recording functionality. We are committed to protecting your privacy and ensuring transparency in compliance with applicable data protection laws and Apple’s App Store guidelines.
+            Welcome to Designr.Pro, the professional portfolio of Vegar Berentsen, showcasing apps like TextClip, Mapr, and other projects. This Privacy Policy outlines how we handle your information across our website and applications. We are committed to protecting your privacy and ensuring transparency in compliance with applicable data protection laws and Apple’s App Store guidelines.
           </PolicyText>
-        </SectionContent>
-      </Section>
-
-      {/* Screen Recording Data Section */}
-      <Section>
-        <SectionTitle className="font-heading">Screen Recording Data</SectionTitle>
-        <SectionContent>
           <PolicyText>
-            TextClip uses screen recording to enable its core functionality: capturing a user-selected region of the screen to perform optical character recognition (OCR) and extract text. Below, we detail how screen recording data is collected, used, and protected.
+            Our website (Designr.Pro) serves as a portfolio to display projects and provide contact information. We do not collect personal data through the website itself, as it does not include features like contact forms, user accounts, or analytics tracking.
+          </PolicyText>
+          <PolicyList>
+            <PolicyListItem>
+              <strong>No Analytics or Tracking</strong>: Designr.Pro does not use analytics services or collect usage data, such as IP addresses, device information, or browsing behavior.
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>No User Input Data</strong>: The website does not collect personal information through user inputs, as it is a static portfolio site.
+            </PolicyListItem>
+          </PolicyList>
+          <PolicyText>
+            For app-specific privacy details, please expand the sections below.
+          </PolicyText>
+        </>
+      ),
+    },
+    {
+      name: 'TextClip Privacy',
+      content: (
+        <>
+          <PolicyText>
+            TextClip is a macOS app that uses screen recording to enable its core functionality: capturing a user-selected region of the screen to perform optical character recognition (OCR) and extract text. Below, we detail how screen recording data is collected, used, and protected.
           </PolicyText>
           <PolicyList>
             <PolicyListItem>
@@ -119,34 +172,103 @@ export default function PrivacyPolicy() {
             <PolicyListItem>
               <strong>Retention</strong>: As the screenshot data is only held in memory during processing, it is not retained after the OCR process completes. The recognized text remains in the clipboard until overwritten by new content, as per macOS clipboard behavior.
             </PolicyListItem>
+            <PolicyListItem>
+              <strong>Other Data</strong>: TextClip does not collect additional user data, such as analytics, usage data, or personal information, as it operates entirely offline.
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>Control</strong>: You can revoke screen recording permissions at any time via System Settings <span>&gt;</span> Privacy & Security <span>&gt;</span> Screen Recording, which will disable TextClip’s ability to capture screen regions.
+            </PolicyListItem>
           </PolicyList>
-        </SectionContent>
-      </Section>
-
-      {/* Other Data We Collect Section */}
-      <Section>
-        <SectionTitle className="font-heading">Other Data We Collect</SectionTitle>
-        <SectionContent>
+        </>
+      ),
+    },
+    {
+      name: 'Mapr Privacy',
+      content: (
+        <>
           <PolicyText>
-            TextClip is designed to operate entirely offline and does not collect additional user data beyond what is necessary for its screen recording functionality. Specifically:
+            Mapr is a project management tool for tradesmen, available on iOS, macOS, and visionOS, with a map-based interface for managing projects, contacts, and time tracking. Below, we detail how Mapr handles your data.
           </PolicyText>
           <PolicyList>
             <PolicyListItem>
-              <strong>No Analytics or Tracking</strong>: TextClip does not use analytics services or collect usage data, such as IP addresses, device information, or browsing behavior.
+              <strong>Data Collected</strong>: Mapr collects project-related data entered by the user, such as project names, locations, descriptions, contacts, and time logs. If location services are enabled, Mapr may access your device’s location to display projects on a map.
             </PolicyListItem>
             <PolicyListItem>
-              <strong>No User Input Data</strong>: The app does not collect personal information through user inputs, as it does not include features like contact forms or user accounts.
+              <strong>Purpose of Collection</strong>: The data is collected to provide Mapr’s core functionality:
+              <ul style={{ listStyleType: 'circle', paddingLeft: '1.5rem', marginTop: '0.5rem' }}>
+                <li>Project data (names, descriptions, contacts, time logs) is used to manage and organize your projects within the app.</li>
+                <li>Location data is used to display project locations on a map-based interface, helping you visualize the geographical distribution of your ongoing projects.</li>
+              </ul>
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>Sharing with Third Parties</strong>: Mapr does not share your project or location data with third parties. All data is processed locally on your device, except when using Apple’s MapKit for map rendering, which may involve transmitting location data to Apple as part of the mapping service. This is governed by Apple’s privacy policy.
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>Storage</strong>: Project data is stored locally on your device in the app’s secure storage. If iCloud syncing is enabled, project data may be stored in iCloud to sync across your devices, using Apple’s encrypted iCloud storage.
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>Retention</strong>: Project data is retained on your device until you delete it within the app. If iCloud syncing is enabled, data is retained in iCloud until you delete it from all synced devices.
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>Location Permissions</strong>: Mapr requests location permissions only when necessary for map-based features. You can disable location access at any time via your device’s settings, and Mapr will continue to function without location data, though map features will be limited.
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>Other Data</strong>: Mapr does not collect analytics, usage data, or other personal information beyond what is necessary for its project management features.
             </PolicyListItem>
           </PolicyList>
+        </>
+      ),
+    },
+  ];
+
+  return (
+    <PrivacyContainer>
+      <PrivacyTitle className="font-heading">Privacy Policy</PrivacyTitle>
+
+      {/* Introduction Section */}
+      <Section>
+        <SectionTitle className="font-heading">Introduction</SectionTitle>
+        <SectionContent>
+          <PolicyText>
+            Welcome to Designr.Pro, the professional portfolio of Vegar Berentsen, showcasing apps like TextClip, Mapr, and other projects. This Privacy Policy outlines how we handle your information across our website and applications. We are committed to protecting your privacy and ensuring transparency in compliance with applicable data protection laws and Apple’s App Store guidelines.
+          </PolicyText>
         </SectionContent>
       </Section>
+
+      {/* Toggled Privacy Sections */}
+      {privacySections.map((section) => (
+        <Section key={section.name}>
+          <SectionHeader onClick={() => toggleSection(section.name)}>
+            <SectionTitle className="font-heading">{section.name}</SectionTitle>
+            <ToggleButton aria-label={`Toggle ${section.name} section`}>
+              {openSections[section.name] ? 'Collapse' : 'Expand'}
+            </ToggleButton>
+          </SectionHeader>
+          {openSections[section.name] && (
+            <SectionContent>
+              {section.content}
+            </SectionContent>
+          )}
+        </Section>
+      ))}
 
       {/* Data Protection Section */}
       <Section>
         <SectionTitle className="font-heading">Data Protection</SectionTitle>
         <SectionContent>
           <PolicyText>
-            We implement reasonable security measures to protect your data. Since TextClip operates entirely offline, the screenshot data collected during screen recording is processed locally on your device and is not transmitted over the internet. The temporary in-memory storage of screenshot data is managed securely by macOS, and we do not persistently store or back up this data.
+            We implement reasonable security measures to protect your data. Designr.Pro operates as a static website and does not collect or store user data. Our apps, TextClip and Mapr, process data locally on your device whenever possible:
+          </PolicyText>
+          <PolicyList>
+            <PolicyListItem>
+              TextClip processes screen recording data locally using Apple’s native frameworks, with no data transmission off-device.
+            </PolicyListItem>
+            <PolicyListItem>
+              Mapr stores project data locally or in iCloud (if enabled), using Apple’s encrypted storage, and only shares location data with Apple for map rendering via MapKit.
+            </PolicyListItem>
+          </PolicyList>
+          <PolicyText>
+            We do not use third-party analytics or tracking services across our website or apps, ensuring your data remains private.
           </PolicyText>
         </SectionContent>
       </Section>
@@ -156,14 +278,17 @@ export default function PrivacyPolicy() {
         <SectionTitle className="font-heading">Your Rights</SectionTitle>
         <SectionContent>
           <PolicyText>
-            Since TextClip does not collect or store personal information beyond temporary in-memory processing of screen recording data, there is no user data to access, correct, or delete. However, you have the following rights regarding your privacy:
+            You have the following rights regarding your privacy across Designr.Pro and our apps:
           </PolicyText>
           <PolicyList>
             <PolicyListItem>
-              <strong>Transparency</strong>: We provide full disclosure of our screen recording practices, as outlined in this policy.
+              <strong>Transparency</strong>: We provide full disclosure of our data practices, as outlined in this policy.
             </PolicyListItem>
             <PolicyListItem>
-              <strong>Control</strong>: You can revoke screen recording permissions at any time via System Settings Privacy & Security Screen Recording, which will disable TextClip’s ability to capture screen regions.
+              <strong>Control</strong>: For TextClip, you can revoke screen recording permissions via System Settings <span>&gt;</span> Privacy & Security <span>&gt;</span> Screen Recording. For Mapr, you can disable location access via your device’s settings.
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>Access, Correction, Deletion</strong>: Since Designr.Pro does not collect user data, and our apps store data locally, you can manage your data directly within each app (e.g., delete projects in Mapr). For iCloud data in Mapr, you can manage it via your iCloud settings.
             </PolicyListItem>
           </PolicyList>
           <PolicyText>
