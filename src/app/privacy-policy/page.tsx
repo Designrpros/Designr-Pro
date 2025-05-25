@@ -33,14 +33,14 @@ const PrivacyTitle = styled.h1`
   background-color: #fddeb4; /* Tinted yellow background */
   padding: 0.5rem 1rem;
   display: inline-block;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem; /* Increased spacing below the title */
   @media (max-width: 768px) {
     font-size: 2rem;
   }
 `;
 
 const Section = styled.section`
-  margin-bottom: 2rem;
+  margin-bottom: 3rem; /* Increased spacing between sections */
   width: 100%;
 `;
 
@@ -58,16 +58,31 @@ const SectionHeader = styled.div`
   }
 `;
 
+const SectionTitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align title to the left like CategoryHeader in Home.tsx */
+`;
+
 const SectionTitle = styled.h2`
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: 2rem; /* Match CategoryTitle font-size from Home.tsx */
+  font-weight: 700;
   color: #292a2d; /* Black text */
   background-color: #fddeb4; /* Tinted yellow background */
   padding: 0.5rem 1rem;
   display: inline-block;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem; /* Add spacing below the title like CategoryDescription */
   @media (max-width: 768px) {
     font-size: 1.5rem;
+  }
+`;
+
+const SectionDescription = styled.p`
+  font-size: 1rem;
+  color: #292a2d;
+  margin-top: 0; /* Remove default margin to match CategoryDescription */
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
   }
 `;
 
@@ -124,6 +139,7 @@ export default function PrivacyPolicy() {
   const privacySections = [
     {
       name: 'General Privacy Information',
+      description: 'Overview of privacy practices for the Designr.Pro website and its applications.',
       content: (
         <>
           <PolicyText>
@@ -148,6 +164,7 @@ export default function PrivacyPolicy() {
     },
     {
       name: 'TextClip Privacy',
+      description: 'Privacy details for TextClip, a macOS app that uses screen recording for OCR.',
       content: (
         <>
           <PolicyText>
@@ -176,7 +193,7 @@ export default function PrivacyPolicy() {
               <strong>Other Data</strong>: TextClip does not collect additional user data, such as analytics, usage data, or personal information, as it operates entirely offline.
             </PolicyListItem>
             <PolicyListItem>
-              <strong>Control</strong>: You can revoke screen recording permissions at any time via System Settings <span>&gt;</span> Privacy & Security <span>&gt;</span> Screen Recording, which will disable TextClip’s ability to capture screen regions.
+              <strong>Control</strong>: You can revoke screen recording permissions at any time via System Settings <span></span> Privacy & Security <span></span> Screen Recording, which will disable TextClip’s ability to capture screen regions.
             </PolicyListItem>
           </PolicyList>
         </>
@@ -184,6 +201,7 @@ export default function PrivacyPolicy() {
     },
     {
       name: 'Mapr Privacy',
+      description: 'Privacy details for Mapr, a project management tool with a map-based interface.',
       content: (
         <>
           <PolicyText>
@@ -239,7 +257,10 @@ export default function PrivacyPolicy() {
       {privacySections.map((section) => (
         <Section key={section.name}>
           <SectionHeader onClick={() => toggleSection(section.name)}>
-            <SectionTitle className="font-heading">{section.name}</SectionTitle>
+            <SectionTitleWrapper>
+              <SectionTitle className="font-heading">{section.name}</SectionTitle>
+              <SectionDescription className="font-sans">{section.description}</SectionDescription>
+            </SectionTitleWrapper>
             <ToggleButton aria-label={`Toggle ${section.name} section`}>
               {openSections[section.name] ? 'Collapse' : 'Expand'}
             </ToggleButton>
@@ -285,7 +306,7 @@ export default function PrivacyPolicy() {
               <strong>Transparency</strong>: We provide full disclosure of our data practices, as outlined in this policy.
             </PolicyListItem>
             <PolicyListItem>
-              <strong>Control</strong>: For TextClip, you can revoke screen recording permissions via System Settings <span>&gt;</span> Privacy & Security <span>&gt;</span> Screen Recording. For Mapr, you can disable location access via your device’s settings.
+              <strong>Control</strong>: For TextClip, you can revoke screen recording permissions via System Settings <span></span> Privacy & Security <span></span> Screen Recording. For Mapr, you can disable location access via your device’s settings.
             </PolicyListItem>
             <PolicyListItem>
               <strong>Access, Correction, Deletion</strong>: Since Designr.Pro does not collect user data, and our apps store data locally, you can manage your data directly within each app (e.g., delete projects in Mapr). For iCloud data in Mapr, you can manage it via your iCloud settings.
