@@ -88,49 +88,56 @@ export default function PrivacyPolicy() {
         <SectionTitle className="font-heading">Introduction</SectionTitle>
         <SectionContent>
           <PolicyText>
-            Welcome to Designr.Pro, a portfolio website operated by Vegar Berentsen. This Privacy Policy outlines how we collect, use, and protect your personal information when you visit our site or interact with its features, such as the contact form. Your privacy is important to us, and we are committed to ensuring transparency and compliance with applicable data protection laws.
+            Welcome to TextClip, a macOS app developed by Vegar Berentsen. This Privacy Policy outlines how we handle your information when you use TextClip, particularly in relation to its screen recording functionality. We are committed to protecting your privacy and ensuring transparency in compliance with applicable data protection laws and Apple’s App Store guidelines.
           </PolicyText>
         </SectionContent>
       </Section>
 
-      {/* Data Collection Section */}
+      {/* Screen Recording Data Section */}
       <Section>
-        <SectionTitle className="font-heading">Data We Collect</SectionTitle>
+        <SectionTitle className="font-heading">Screen Recording Data</SectionTitle>
         <SectionContent>
-          <PolicyText>We may collect the following types of information:</PolicyText>
-          <PolicyList>
-            <PolicyListItem>
-              <strong>Contact Form Data</strong>: When you submit the contact form on the /contact page, we collect your name, email address, and message content to respond to your inquiries.
-            </PolicyListItem>
-            <PolicyListItem>
-              <strong>Analytics Data</strong>: We use Google Analytics (ID: G-9Z5EH0V3ZQ) to collect anonymized data about your visit, such as pages viewed, time spent, and device information. This helps us improve the site’s performance and user experience.
-            </PolicyListItem>
-            <PolicyListItem>
-              <strong>Usage Data</strong>: We may collect technical data, such as IP addresses, browser types, and operating systems, to monitor site functionality and security.
-            </PolicyListItem>
-          </PolicyList>
-        </SectionContent>
-      </Section>
-
-      {/* Data Usage Section */}
-      <Section>
-        <SectionTitle className="font-heading">How We Use Your Data</SectionTitle>
-        <SectionContent>
-          <PolicyText>Your data is used for the following purposes:</PolicyText>
-          <PolicyList>
-            <PolicyListItem>
-              To respond to inquiries submitted via the contact form.
-            </PolicyListItem>
-            <PolicyListItem>
-              To analyze site usage through Google Analytics, enabling us to optimize content and navigation.
-            </PolicyListItem>
-            <PolicyListItem>
-              To ensure the security and functionality of the website, such as detecting and preventing fraudulent activity.
-            </PolicyListItem>
-          </PolicyList>
           <PolicyText>
-            We do not sell, trade, or share your personal information with third parties, except as required by law or to fulfill services (e.g., Google Analytics processing anonymized data).
+            TextClip uses screen recording to enable its core functionality: capturing a user-selected region of the screen to perform optical character recognition (OCR) and extract text. Below, we detail how screen recording data is collected, used, and protected.
           </PolicyText>
+          <PolicyList>
+            <PolicyListItem>
+              <strong>Features Using Screen Recording</strong>: When you select "Capture Text" from the menu bar or use the Cmd+Shift+2 shortcut, TextClip displays a selection window that allows you to drag and select a rectangular region on the screen. This region is captured using macOS’s ScreenCaptureKit framework, processed with Apple’s Vision framework for OCR, and the recognized text is copied to your clipboard.
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>Data Collected</strong>: TextClip collects a screenshot of the user-selected screen region, which may contain any visible content within that area (e.g., text, images, or UI elements). No additional metadata about the screen content is collected beyond the pixel data necessary for OCR processing.
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>Purpose of Collection</strong>: The screenshot data is collected solely to perform OCR and extract text, enabling you to copy the recognized text to the clipboard for use in other applications. The process involves capturing the selected region, preprocessing the image (e.g., scaling and adjusting contrast) to improve OCR accuracy, recognizing text with the Vision framework, and copying the text to the clipboard.
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>Sharing with Third Parties</strong>: The screenshot data is not shared with any third parties. The entire process occurs locally on your device using Apple’s native frameworks (ScreenCaptureKit and Vision). No data is transmitted off-device.
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>Storage</strong>: The screenshot data is temporarily stored in memory during the OCR process and is discarded immediately after the recognized text is copied to the clipboard. No screenshot data is persistently stored on your device or elsewhere. The recognized text is stored only in the system clipboard, which is managed by macOS and cleared when you copy new content.
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>Retention</strong>: As the screenshot data is only held in memory during processing, it is not retained after the OCR process completes. The recognized text remains in the clipboard until overwritten by new content, as per macOS clipboard behavior.
+            </PolicyListItem>
+          </PolicyList>
+        </SectionContent>
+      </Section>
+
+      {/* Other Data We Collect Section */}
+      <Section>
+        <SectionTitle className="font-heading">Other Data We Collect</SectionTitle>
+        <SectionContent>
+          <PolicyText>
+            TextClip is designed to operate entirely offline and does not collect additional user data beyond what is necessary for its screen recording functionality. Specifically:
+          </PolicyText>
+          <PolicyList>
+            <PolicyListItem>
+              <strong>No Analytics or Tracking</strong>: TextClip does not use analytics services or collect usage data, such as IP addresses, device information, or browsing behavior.
+            </PolicyListItem>
+            <PolicyListItem>
+              <strong>No User Input Data</strong>: The app does not collect personal information through user inputs, as it does not include features like contact forms or user accounts.
+            </PolicyListItem>
+          </PolicyList>
         </SectionContent>
       </Section>
 
@@ -139,7 +146,7 @@ export default function PrivacyPolicy() {
         <SectionTitle className="font-heading">Data Protection</SectionTitle>
         <SectionContent>
           <PolicyText>
-            We implement reasonable security measures to protect your data, including secure hosting via Vercel and encryption for data transmission where applicable. However, no online system is completely secure, and we cannot guarantee absolute security.
+            We implement reasonable security measures to protect your data. Since TextClip operates entirely offline, the screenshot data collected during screen recording is processed locally on your device and is not transmitted over the internet. The temporary in-memory storage of screenshot data is managed securely by macOS, and we do not persistently store or back up this data.
           </PolicyText>
         </SectionContent>
       </Section>
@@ -148,23 +155,19 @@ export default function PrivacyPolicy() {
       <Section>
         <SectionTitle className="font-heading">Your Rights</SectionTitle>
         <SectionContent>
-          <PolicyText>You have the following rights regarding your personal information:</PolicyText>
+          <PolicyText>
+            Since TextClip does not collect or store personal information beyond temporary in-memory processing of screen recording data, there is no user data to access, correct, or delete. However, you have the following rights regarding your privacy:
+          </PolicyText>
           <PolicyList>
             <PolicyListItem>
-              <strong>Access</strong>: Request a copy of the data we hold about you.
+              <strong>Transparency</strong>: We provide full disclosure of our screen recording practices, as outlined in this policy.
             </PolicyListItem>
             <PolicyListItem>
-              <strong>Correction</strong>: Request corrections to inaccurate or incomplete data.
-            </PolicyListItem>
-            <PolicyListItem>
-              <strong>Deletion</strong>: Request deletion of your data, subject to legal obligations.
-            </PolicyListItem>
-            <PolicyListItem>
-              <strong>Opt-Out</strong>: Opt out of Google Analytics tracking by disabling cookies in your browser or using tools like the Google Analytics Opt-out Browser Add-on.
+              <strong>Control</strong>: You can revoke screen recording permissions at any time via System Settings Privacy & Security Screen Recording, which will disable TextClip’s ability to capture screen regions.
             </PolicyListItem>
           </PolicyList>
           <PolicyText>
-            To exercise these rights, contact us at VegarBerentsen@gmail.com.
+            To exercise these rights or for any privacy-related inquiries, contact us at the details below.
           </PolicyText>
         </SectionContent>
       </Section>
