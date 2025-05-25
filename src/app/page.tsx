@@ -146,6 +146,11 @@ const projectCategories = [
         url: 'https://lydhagen.vercel.app',
         description: 'A local Norwegian music festival in Bærum kommune, dedicated to fostering community engagement through music and cultural events.',
       },
+      {
+        name: 'Sandvika Platemesse',
+        url: 'https://sandvikaplatemesse.no',
+        description: 'A vibrant vinyl record fair held on May 10-11 at Kadettangen 18, featuring music, culture, and community spirit. Organized by Høl i CV’en, it offers live performances by artists like LIORA, a fresh tea stand, and an afterparty, creating a nostalgic and engaging local experience.'
+      },
     ],
   },
 ];
