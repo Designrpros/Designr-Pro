@@ -1,7 +1,8 @@
 'use client';
 
 import styled from 'styled-components';
-import Link from 'next/link';
+import Link from 'next/link'; // Corrected import
+import Image from 'next/image';
 
 const NavBarContainer = styled.nav`
   background-color: #cad9e4;
@@ -11,11 +12,11 @@ const NavBarContainer = styled.nav`
   align-items: center;
   width: 100%;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  scrollbar-width: none; /* Hide scrollbar Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   &::-webkit-scrollbar {
-    display: none; /* Hide scrollbar Chrome/Safari */
+    display: none;
   }
   
   @media (min-width: 768px) {
@@ -29,7 +30,7 @@ const NavBarContainer = styled.nav`
 const NavLinks = styled.div`
   display: flex;
   gap: 1.5rem;
-  white-space: nowrap; /* Prevent link wrapping */
+  white-space: nowrap;
   margin-left: 1.5rem;
   
   @media (min-width: 768px) {
@@ -48,11 +49,24 @@ const NavLink = styled.a`
   }
 `;
 
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export default function NavBar() {
   return (
     <NavBarContainer>
       <Link href="/">
-        <NavLink>Designr.Pro</NavLink>
+        <LogoContainer>
+          <Image
+            src="/dp.png"
+            alt="Designr.Pro Logo"
+            width={75}
+            height={75}
+            priority
+          />
+        </LogoContainer>
       </Link>
       <NavLinks>
         <Link href="/about"><NavLink>About</NavLink></Link>
