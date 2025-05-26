@@ -1,7 +1,7 @@
 'use client';
 
 import styled from 'styled-components';
-import Link from 'next/link'; // Corrected import
+import Link from 'next/link';
 import Image from 'next/image';
 
 const NavBarContainer = styled.nav`
@@ -40,12 +40,20 @@ const NavLinks = styled.div`
 
 const NavLink = styled.a`
   color: #292a2d;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 500;
-  text-decoration: none;
+  text-decoration: none !important;
   padding: 0.5rem 0;
+  font-family: 'Italianno', cursive;
   &:hover {
-    text-decoration: underline;
+    text-decoration: none !important;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none !important;
+  &:hover {
+    text-decoration: none !important;
   }
 `;
 
@@ -69,11 +77,11 @@ export default function NavBar() {
         </LogoContainer>
       </Link>
       <NavLinks>
-        <Link href="/about"><NavLink>About</NavLink></Link>
-        <Link href="/contact"><NavLink>Contact</NavLink></Link>
-        <Link href="/cv"><NavLink>CV</NavLink></Link>
-        <Link href="/gallery"><NavLink>Gallery</NavLink></Link>
-        <Link href="/privacy-policy"><NavLink>Privacy Policy</NavLink></Link>
+        <StyledLink href="/about"><NavLink>About</NavLink></StyledLink>
+        <StyledLink href="/contact"><NavLink>Contact</NavLink></StyledLink>
+        <StyledLink href="/cv"><NavLink>CV</NavLink></StyledLink>
+        <StyledLink href="/gallery"><NavLink>Gallery</NavLink></StyledLink>
+        <StyledLink href="/privacy-policy"><NavLink>Privacy Policy</NavLink></StyledLink>
       </NavLinks>
     </NavBarContainer>
   );
