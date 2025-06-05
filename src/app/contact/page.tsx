@@ -3,7 +3,23 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-// Styled components
+// This is crucial for TypeScript to recognize 'gtag' on the window object.
+// Ideally, this 'declare global' block should be in a centralized .d.ts file
+// (e.g., `src/types/global.d.ts` or `next-env.d.ts`)
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
+// Helper function to safely send GA4 events
+const sendGaEvent = (eventName: string, eventParams: Record<string, any>) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', eventName, eventParams);
+  }
+};
+
+// Styled components (no changes needed here unless for specific styling requirements)
 const ContactContainer = styled.div`
   padding: 50px 20px;
   background-color: #cad9e4; /* Soft blue-gray background */
@@ -121,16 +137,40 @@ export default function Contact() {
     message: '',
   });
 
+  // Keep track if the form has been started to avoid firing 'form_start' multiple times
+  const [formStarted, setFormStarted] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    // Fire 'form_start' event only once when a user first interacts with any form field
+    if (!formStarted) {
+      sendGaEvent('form_start', {
+        form_name: 'Contact Form',
+        form_id: 'contact_me_form',
+      });
+      setFormStarted(true);
+    }
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder for form submission logic (e.g., send to an API)
+
+    // Send 'form_submit_attempt' event
+    sendGaEvent('form_submit_attempt', {
+      form_name: 'Contact Form',
+      form_id: 'contact_me_form',
+      // You can also send form data here, but be mindful of PII (Personally Identifiable Information)
+      // For example, you might send just the email or a hash of it, or no sensitive data.
+      // current_name_length: formData.name.length,
+      // current_email_length: formData.email.length,
+      // current_message_length: formData.message.length,
+    });
+
+    // Placeholder for actual form submission logic (e.g., send to an API)
     console.log('Form submitted:', formData);
-    alert('Message sent! (This is a placeholder action)');
+    alert('Message sent! (This is a placeholder action)'); // This alert will appear even if the form isn't truly sent.
     setFormData({ name: '', email: '', message: '' });
+    setFormStarted(false); // Reset formStarted for subsequent submissions if user stays on page
   };
 
   return (

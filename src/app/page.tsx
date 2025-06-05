@@ -9,6 +9,22 @@ interface CategoryState {
   [key: string]: boolean;
 }
 
+// Declare gtag on the Window interface so TypeScript knows it exists
+// (This block should ideally be in a global declaration file like `src/types/global.d.ts`
+// or `next-env.d.ts` if you have one, to avoid repetition.)
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
+// Helper function to safely send GA4 events
+const sendGaEvent = (eventName: string, eventParams: Record<string, any>) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', eventName, eventParams);
+  }
+};
+
 // Project categories with descriptions
 const projectCategories = [
   {
@@ -160,7 +176,7 @@ const projectCategories = [
   },
 ];
 
-// Styled Components
+// Styled Components (No changes needed here)
 const Wrapper = styled.div`
   min-height: 100vh;
   background-color: #cad9e4;
@@ -411,6 +427,17 @@ export default function Home() {
     }));
   };
 
+  // New function to handle external link clicks from the portfolio
+  const handleExternalLinkClick = (categoryName: string, projectName: string, projectUrl: string) => {
+    sendGaEvent('portfolio_external_link_click', { // Custom event name
+      category_name: categoryName,                // Category of the project
+      project_name: projectName,                  // Name of the clicked project
+      link_url: projectUrl,                       // URL of the external link
+      link_text: 'Visit Project',                 // The text displayed on the link
+      link_location: 'portfolio_item',            // Context: where the click occurred
+    });
+  };
+
   return (
     <Wrapper>
       {/* Hero Section */}
@@ -459,7 +486,14 @@ export default function Home() {
                       <PortfolioItemTitle className="font-heading">{project.name}</PortfolioItemTitle>
                       <PortfolioItemDescription className="font-sans">{project.description}</PortfolioItemDescription>
                       <Link href={project.url} passHref>
-                        <PortfolioItemLink target="_blank" rel="noopener noreferrer">Visit Project</PortfolioItemLink>
+                        {/* Attach onClick handler to PortfolioItemLink */}
+                        <PortfolioItemLink
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => handleExternalLinkClick(category.name, project.name, project.url)}
+                        >
+                          Visit Project
+                        </PortfolioItemLink>
                       </Link>
                     </PortfolioItemContent>
                   </PortfolioItem>
