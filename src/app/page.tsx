@@ -62,6 +62,11 @@ const projectCategories = [
         url: 'https://baerumkart.vercel.app',
         description: 'Inspired by UT.no, BærumKart is a digital mapping platform tailored for the Bærum region. It offers detailed maps and guides for outdoor activities, including hiking trails, cultural landmarks, and community events, encouraging residents and visitors to explore Bærum’s natural beauty and local attractions.',
       },
+      {
+        name: 'icon',
+        url: 'https://icon-events.vercel.app/', // Your deployed icon app URL
+        description: 'A smart event aggregator for Oslo and beyond. It automatically collects and organizes thousands of event listings from hundreds of sources—from major arenas to local pubs—and presents them in one clean, simple, and searchable feed. This project demonstrates advanced web scraping, self-hosted backend deployment, and real-time data serving to a Vercel-hosted Next.js frontend.',
+      },
     ],
   },
   {

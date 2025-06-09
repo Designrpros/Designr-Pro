@@ -168,7 +168,7 @@ export default function Contact() {
 
     // Placeholder for actual form submission logic (e.g., send to an API)
     console.log('Form submitted:', formData);
-    alert('Message sent! (This is a placeholder action)'); // This alert will appear even if the form isn't truly sent.
+    alert('Message Form Currenlty not working, use mail directly'); // This alert will appear even if the form isn't truly sent.
     setFormData({ name: '', email: '', message: '' });
     setFormStarted(false); // Reset formStarted for subsequent submissions if user stays on page
   };
