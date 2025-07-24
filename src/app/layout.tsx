@@ -1,5 +1,6 @@
 import './globals.css';
 import { Inter, Montserrat } from 'next/font/google';
+import StyledComponentsRegistry from "./lib/registry"; // Ensure this path is correct
 import NavBar from '../components/NavBar';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -42,8 +43,10 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${montserrat.variable}`}>
+        <StyledComponentsRegistry>
         <NavBar />
         {children}
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

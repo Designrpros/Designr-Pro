@@ -1,5 +1,7 @@
-'use client';
+"use client";
 
+import type { NextPage } from 'next';
+import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -31,6 +33,12 @@ const projectCategories = [
     name: 'Mobile Apps',
     description: 'Innovative mobile applications for iOS, macOS, and visionOS, solving unique challenges with intuitive designs.',
     projects: [
+      // NEW: Add WaveForm project
+      {
+        name: 'WaveForm',
+        url: 'https://www.waveform.ink',
+        description: 'A native music player for Apple platforms, streaming content from YouTube Music with offline downloads, iCloud sync, and advanced library management.',
+      },
       {
         name: 'Mapr',
         url: 'https://mapr-homepage.vercel.app',
@@ -64,7 +72,7 @@ const projectCategories = [
       },
       {
         name: 'icon',
-        url: 'https://icon-events.vercel.app/', // Your deployed icon app URL
+        url: 'https://icon-events.vercel.app/',
         description: 'A smart event aggregator for Oslo and beyond. It automatically collects and organizes thousands of event listings from hundreds of sources—from major arenas to local pubs—and presents them in one clean, simple, and searchable feed. This project demonstrates advanced web scraping, self-hosted backend deployment, and real-time data serving to a Vercel-hosted Next.js frontend.',
       },
     ],
