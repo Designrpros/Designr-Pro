@@ -119,6 +119,9 @@ export default function NavBar() {
         <StyledLink href="/privacy-policy">
           <NavLink onClick={() => handleNavLinkClick('Privacy Policy', '/privacy-policy')}>Privacy Policy</NavLink>
         </StyledLink>
+        <StyledLink href="/terms-of-service">
+          <NavLink onClick={() => handleNavLinkClick('Terms of Service', '/terms-of-service')}>Terms of Service</NavLink>
+        </StyledLink>
       </NavLinks>
     </NavBarContainer>
   );
