@@ -33,11 +33,15 @@ const projectCategories = [
     name: 'Mobile Apps',
     description: 'Innovative mobile applications for iOS, macOS, and visionOS, solving unique challenges with intuitive designs.',
     projects: [
-      // NEW: Add WaveForm project
       {
-        name: 'WaveForm',
-        url: 'https://www.waveform.ink',
-        description: 'A native music player for Apple platforms, streaming content from YouTube Music with offline downloads, iCloud sync, and advanced library management.',
+        name: 'Peak',
+        url: 'https://apps.apple.com/app/peak-browser/idXXXXXXXXXX', // Replace with actual App Store URL
+        description: 'A comprehensive workspace that minimizes context switching by bringing research, content creation, and AI assistance into a single, instantly accessible window. Features instant global access, intelligent landing page, integrated note editor, AI assistant, full tab management, session history, and personalized appearance.',
+      },
+      {
+        name: 'Mapr Atlas',
+        url: 'https://apps.apple.com/no/app/mapr-atlas/id6752829712?l=nb', // Replace with actual App Store URL
+        description: 'Your comprehensive guide to global economics, markets, and demographics. Features interactive world atlas with economic data visualization, global markets tracking, AI assistant for contextual summaries, currency converter, and unit converter. Pro version offers unlimited AI queries and advanced analytical tools.',
       },
       {
         name: 'Mapr',
