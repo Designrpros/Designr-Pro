@@ -35,7 +35,7 @@ const projectCategories = [
     projects: [
       {
         name: 'Peak',
-        url: 'https://apps.apple.com/app/peak-browser/idXXXXXXXXXX', // Replace with actual App Store URL
+        url: 'https://peak-browser.vercel.app', // Replace with actual App Store URL
         description: 'A comprehensive workspace that minimizes context switching by bringing research, content creation, and AI assistance into a single, instantly accessible window. Features instant global access, intelligent landing page, integrated note editor, AI assistant, full tab management, session history, and personalized appearance.',
       },
       {
