@@ -75,9 +75,6 @@ export default function About() {
         <SectionTitle className="font-heading">Who I Am</SectionTitle>
         <SectionContent>
           <BioText>
-            Hi! I’m Vegar Berentsen, a passionate web designer and developer based in Østerås, Norway. With a background in electrical engineering and a degree in Tjenestedesign from Høyskolen Kristiania, I bring a unique blend of technical expertise and creative problem-solving to my work.
-          </BioText>
-          <BioText>
             I specialize in building dynamic and interactive web experiences using technologies like React and SwiftUI. My journey in tech has been complemented by diverse experiences, from working as an electrician at Bærum Elektropartner AS to teaching sailing at Bærum Seilforening, which have taught me the value of precision, adaptability, and collaboration.
           </BioText>
         </SectionContent>
