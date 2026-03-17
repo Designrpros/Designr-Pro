@@ -61,17 +61,6 @@ const projectCategories = [
     ],
   },
   {
-    name: 'Web Apps',
-    description: 'Web-based platforms fostering community collaboration and regional exploration.',
-    projects: [
-      {
-        name: 'Låne Lageret',
-        url: 'https://laanelageret.vercel.app',
-        description: 'A Bua-inspired concept for Akthe, Låne Lageret is a community-driven initiative that provides a lending library for tools, equipment, and resources. Designed to promote sustainability and accessibility, this platform allows individuals to borrow items for their projects, fostering collaboration and reducing waste within the Akthe community.',
-      },
-    ],
-  },
-  {
     name: 'Learning Resources',
     description: 'Interactive tools and platforms for developing creative and technical skills.',
     projects: [
@@ -136,6 +125,11 @@ const projectCategories = [
         name: 'Akthe',
         url: 'https://akthe.vercel.app',
         description: 'An aktivitetsbasert helsehjelp (activity-based healthcare) platform providing solutions focused on engaging individuals in meaningful activities to promote health and well-being.',
+      },
+      {
+        name: 'Låne Lageret',
+        url: 'https://laanelageret.vercel.app',
+        description: 'A Bua-inspired concept for Akthe, Låne Lageret is a community-driven initiative that provides a lending library for tools, equipment, and resources. Designed to promote sustainability and accessibility, this platform allows individuals to borrow items for their projects, fostering collaboration and reducing waste within the Akthe community.',
       },
       {
         name: 'Studio 51',
