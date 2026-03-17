@@ -69,16 +69,6 @@ const projectCategories = [
         url: 'https://laanelageret.vercel.app',
         description: 'A Bua-inspired concept for Akthe, Låne Lageret is a community-driven initiative that provides a lending library for tools, equipment, and resources. Designed to promote sustainability and accessibility, this platform allows individuals to borrow items for their projects, fostering collaboration and reducing waste within the Akthe community.',
       },
-      {
-        name: 'BærumKart',
-        url: 'https://baerumkart.vercel.app',
-        description: 'Inspired by UT.no, BærumKart is a digital mapping platform tailored for the Bærum region. It offers detailed maps and guides for outdoor activities, including hiking trails, cultural landmarks, and community events, encouraging residents and visitors to explore Bærums natural beauty and local attractions.',
-      },
-      {
-        name: 'icon',
-        url: 'https://icon-events.vercel.app/',
-        description: 'A smart event aggregator for Oslo and beyond. It automatically collects and organizes thousands of event listings from hundreds of sources-from major arenas to local pubs-and presents them in one clean, simple, and searchable feed. This project demonstrates advanced web scraping, self-hosted backend deployment, and real-time data serving to a Vercel-hosted Next.js frontend.',
-      },
     ],
   },
   {
