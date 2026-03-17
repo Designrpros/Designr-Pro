@@ -144,22 +144,6 @@ const projectCategories = [
     ],
   },
   {
-    name: 'Commercial Websites',
-    description: 'Professional websites for businesses, highlighting services and achievements.',
-    projects: [
-      {
-        name: 'Brodrene Ervik',
-        url: 'https://brodrene-ervik.vercel.app/',
-        description: 'A project developed for a Norwegian construction company, highlighting their services and previous work.',
-      },
-      {
-        name: 'Bærum Bygg Fornyelse',
-        url: 'https://www.baerumbyggfornyelse.no/',
-        description: 'A construction and renovation company based in Bærum, specializing in building renewal projects. This was one of the developers first external projects.',
-      },
-    ],
-  },
-  {
     name: 'Special Projects',
     description: 'Unique initiatives spanning virtual reality and cultural community events.',
     projects: [
