@@ -30,7 +30,7 @@ const sendGaEvent = (eventName: string, eventParams: Record<string, any>) => {
 // Project categories with descriptions
 const projectCategories = [
   {
-    name: 'Mobile Apps',
+    name: 'Apps',
     description: 'Innovative mobile applications for iOS, macOS, and visionOS, solving unique challenges with intuitive designs.',
     projects: [
       {
@@ -56,7 +56,7 @@ const projectCategories = [
       {
         name: 'TextClip',
         url: 'https://apps.apple.com/no/app/textclip/id6746357735?mt=12',
-        description: 'A powerful Mac OCR app that effortlessly extracts text from images, PDFs, websites, or videos. TextClip’s intuitive interface allows users to select screen regions for instant text recognition, copying results to the clipboard for use in any macOS app. Operating offline for privacy, it requires no special skills, making it ideal for students, professionals, and anyone needing fast, secure text extraction.'
+        description: 'A powerful Mac OCR app that effortlessly extracts text from images, PDFs, websites, or videos. TextClip intuitive interface allows users to select screen regions for instant text recognition, copying results to the clipboard for use in any macOS app. Operating offline for privacy, it requires no special skills, making it ideal for students, professionals, and anyone needing fast, secure text extraction.'
       },
     ],
   },
@@ -72,12 +72,12 @@ const projectCategories = [
       {
         name: 'BærumKart',
         url: 'https://baerumkart.vercel.app',
-        description: 'Inspired by UT.no, BærumKart is a digital mapping platform tailored for the Bærum region. It offers detailed maps and guides for outdoor activities, including hiking trails, cultural landmarks, and community events, encouraging residents and visitors to explore Bærum’s natural beauty and local attractions.',
+        description: 'Inspired by UT.no, BærumKart is a digital mapping platform tailored for the Bærum region. It offers detailed maps and guides for outdoor activities, including hiking trails, cultural landmarks, and community events, encouraging residents and visitors to explore Bærums natural beauty and local attractions.',
       },
       {
         name: 'icon',
         url: 'https://icon-events.vercel.app/',
-        description: 'A smart event aggregator for Oslo and beyond. It automatically collects and organizes thousands of event listings from hundreds of sources—from major arenas to local pubs—and presents them in one clean, simple, and searchable feed. This project demonstrates advanced web scraping, self-hosted backend deployment, and real-time data serving to a Vercel-hosted Next.js frontend.',
+        description: 'A smart event aggregator for Oslo and beyond. It automatically collects and organizes thousands of event listings from hundreds of sources-from major arenas to local pubs-and presents them in one clean, simple, and searchable feed. This project demonstrates advanced web scraping, self-hosted backend deployment, and real-time data serving to a Vercel-hosted Next.js frontend.',
       },
     ],
   },
@@ -91,6 +91,11 @@ const projectCategories = [
         description: 'Your guide to mastering music production.',
       },
       {
+        name: 'Wikits',
+        url: 'https://wikits.net',
+        description: 'The Operating System for Learning. Merge generative AI, localized databases, and community knowledge into a seamless personal learning engine. Features custom syllabi, knowledge graphs, offline-first design, and AI research agents.',
+      },
+      {
         name: 'Prompted',
         url: 'https://prompted-two.vercel.app',
         description: 'Enhance your creative process with Prompted. Learn prompt engineering to inspire lyrics and music ideas for Studio 51 sessions.',
@@ -98,12 +103,12 @@ const projectCategories = [
       {
         name: 'Composition',
         url: 'https://composition-nu.vercel.app',
-        description: 'Master graphic design with Composition, perfect for Studio 51’s animation workshops. Explore Figma for prototyping visuals.',
+        description: 'Master graphic design with Composition, perfect for Studio 51s animation workshops. Explore Figma for prototyping visuals.',
       },
       {
         name: 'Layer',
         url: 'https://layer-eight.vercel.app',
-        description: 'Learn web design basics with Layer, tailored for Studio 51’s digital projects. Use VSCode, Next.js, and Styled Components to build creative tools.',
+        description: 'Learn web design basics with Layer, tailored for Studio 51s digital projects. Use VSCode, Next.js, and Styled Components to build creative tools.',
       },
     ],
   },
@@ -129,7 +134,7 @@ const projectCategories = [
       {
         name: 'Alcatelz',
         url: 'https://www.alcatelz.com/',
-        description: 'A personal portfolio page displaying various projects and outlining the creator’s work philosophy.',
+        description: 'A personal portfolio page displaying various projects and outlining the creators work philosophy.',
       },
     ],
   },
@@ -166,7 +171,7 @@ const projectCategories = [
       {
         name: 'Bærum Bygg Fornyelse',
         url: 'https://www.baerumbyggfornyelse.no/',
-        description: 'A construction and renovation company based in Bærum, specializing in building renewal projects. This was one of the developer’s first external projects.',
+        description: 'A construction and renovation company based in Bærum, specializing in building renewal projects. This was one of the developers first external projects.',
       },
     ],
   },
@@ -179,15 +184,22 @@ const projectCategories = [
         url: 'https://prima-vr.vercel.app',
         description: 'A platform offering VR experiences aimed at enhancing the lifestyle and wellness of older adults.',
       },
-      {
-        name: 'Lydhagen',
-        url: 'https://lydhagen.vercel.app',
-        description: 'A local Norwegian music festival in Bærum kommune, dedicated to fostering community engagement through music and cultural events.',
-      },
+
       {
         name: 'Sandvika Platemesse',
         url: 'https://sandvikaplatemesse.no',
-        description: 'A vibrant vinyl record fair held on May 10-11 at Kadettangen 18, featuring music, culture, and community spirit. Organized by Høl i CV’en, it offers live performances by artists like LIORA, a fresh tea stand, and an afterparty, creating a nostalgic and engaging local experience.'
+        description: 'A vibrant vinyl record fair held on May 10-11 at Kadettangen 18, featuring music, culture, and community spirit. Organized by Høl i CVen, it offers live performances by artists like LIORA, a fresh tea stand, and an afterparty, creating a nostalgic and engaging local experience.'
+      },
+    ],
+  },
+  {
+    name: 'Travel',
+    description: 'Cost of living guides for travel and relocation across Europe.',
+    projects: [
+      {
+        name: 'Cost of Living',
+        url: 'https://costofliving.no',
+        description: 'Comprehensive guide to cost of living in 50+ European countries and 210+ cities. Includes rent prices, food costs, transport, and local insights for budget travelers and digital nomads.',
       },
     ],
   },
@@ -474,7 +486,7 @@ export default function Home() {
         </HeroTitle>
         <HeroSubtitle className="font-sans">
           Welcome to Designr.Pro, my digital home where I showcase my skills, creativity, and dedication to app and web development.{' '}
-          <HighlightedText>Currently working at Studio51 and developing Mapr, an app for iOS, macOS and visionOS.</HighlightedText>
+          <HighlightedText>Running Berentsen Labs - building AI assistants and web solutions.</HighlightedText>
         </HeroSubtitle>
         <AuthorText className="font-sans">Based in Østerås, Norway</AuthorText>
         <Link href="/contact">

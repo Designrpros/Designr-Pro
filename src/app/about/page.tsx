@@ -85,10 +85,10 @@ export default function About() {
         <SectionTitle className="font-heading">About Designr.Pro</SectionTitle>
         <SectionContent>
           <BioText>
-            Designr.Pro is my digital home, a space where I showcase my skills, creativity, and dedication to the craft of web development. Built with React in Visual Studio Code, this site serves as both a personal portfolio and a playground for exploring the vast capabilities of React.
+            Designr.Pro is my digital home, a space where I showcase my skills, creativity, and dedication to app and web development. Built with React and Next.js, this site serves as both a personal portfolio and a playground for exploring modern web technologies.
           </BioText>
           <BioText>
-            It’s a space where new ideas are born, tested, and refined, demonstrating the power of React in building dynamic and interactive web experiences. From developing apps like Mapr to creating platforms for local initiatives like Lydhagen, Designr.Pro reflects my commitment to innovation and design excellence.
+            It is a space where new ideas are born, tested, and refined. From building apps like Mapr and Peak to creating platforms for local initiatives, Designr.Pro reflects my commitment to innovation and design excellence. Through Berentsen Labs, I help businesses and individuals leverage AI assistants and web solutions.
           </BioText>
         </SectionContent>
       </Section>
@@ -101,7 +101,7 @@ export default function About() {
             I believe in the power of design to solve real-world problems and enhance user experiences. My approach is user-centered, focusing on creating solutions that are not only functional but also visually appealing and intuitive.
           </BioText>
           <BioText>
-            I’m passionate about continuous learning and experimentation, which is why I use Designr.Pro as a testing ground for new ideas and technologies. Whether I’m building a web app, designing a VR experience, or contributing to community initiatives, my goal is to make a positive impact through thoughtful design and development.
+            I'm passionate about continuous learning and experimentation, which is why I use Designr.Pro as a testing ground for new ideas and technologies. Whether I'm building a web app, designing a VR experience, or contributing to community initiatives, my goal is to make a positive impact through thoughtful design and development.
           </BioText>
         </SectionContent>
       </Section>
