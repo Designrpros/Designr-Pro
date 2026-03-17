@@ -504,7 +504,7 @@ export default function Home() {
       {/* Footer */}
       <Footer>
         <p className="font-sans">
-          © {new Date().getFullYear()} Designr.Pro. All rights reserved.
+          © {new Date().getFullYear()} Berentsen Labs. All rights reserved.
         </p>
         <p className="font-sans">
           VegarBerentsen@gmail.com | +47 485 96 755 | Ovenbakken 31 A, Østerås, Norway
