@@ -109,6 +109,9 @@ export default function NavBar() {
         <StyledLink href="/gallery">
           <NavLink onClick={() => handleNavLinkClick('Gallery', '/gallery')}>Gallery</NavLink>
         </StyledLink>
+        <StyledLink href="/news">
+          <NavLink onClick={() => handleNavLinkClick('News', '/news')}>News</NavLink>
+        </StyledLink>
         <StyledLink href="/blog">
           <NavLink onClick={() => handleNavLinkClick('Blog', '/blog')}>Blog</NavLink>
         </StyledLink>
