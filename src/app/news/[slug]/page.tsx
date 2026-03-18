@@ -74,6 +74,13 @@ const MarkdownContent = styled.div`
     color: #292a2d;
   }
   
+  h3 {
+    font-size: 1.2rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #292a2d;
+  }
+  
   a {
     color: #0d9488;
     text-decoration: underline;
@@ -91,6 +98,27 @@ const MarkdownContent = styled.div`
   strong {
     font-weight: 700;
     color: #1a1a1a;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  
+  th, td {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #fddeb4;
+    font-weight: 600;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f5f5f5;
   }
   
   hr {
@@ -121,17 +149,60 @@ const newsPosts: Record<string, {
   'uke-1': {
     title: 'Welcome to Designr.Pro News',
     date: '18. mars 2026',
-    tags: ['Intro'],
+    tags: ['Intro', 'Our Sources'],
     content: `
 # Velkommen til Designr.Pro News!
 
-Vi samler ukens viktigste tech-nyheter og presenterer dem her for deg.
+Vi har samlet de beste tech-nyhetene fra ukens nyhetsbrev og presenterer dem her for deg.
 
 ---
 
-## Våre kilder
+## Hvorfor akkurat disse kildene?
 
-TLDR, Horizon AI og A Smart Bear.
+### TLDR Newsletter
+**Hva det er:** Et daglig tech-nyhetsbrev som holder deg oppdatert på det viktigste innen programmering, AI og tech.
+
+**Hvorfor vi liker det:**
+- Kort og konsist - du får viktigste på under 5 minutter
+- Bred dekning av tech-verden
+- Ingen hype, bare fakta
+- Perfekt for utviklere og tech-entusiaster
+
+---
+
+### Horizon AI
+**Hva det er:** Et uke-brev (3x/uke) fra Gina Costa som fungerer som din personlige AI-forsker og oversetter.
+
+**Hvorfor vi liker det:**
+- Fokuserer kun på det viktigste i AI-verden
+- 3 minutter lesetid per utgave
+- Praktiske verktøy og tutorials
+- Personlig stemme - Gina graver selv gjennom nyhetene
+
+---
+
+### A Smart Bear
+**Hva det er:** Et ukentlig nyhetsbrev om startups, marketing og business fra Jason Cohen.
+
+**Hvorfor vi liker det:**
+- Kombinert med TLDR + Horizon AI gir det et bredt perspektiv
+- Praktiske tips for å bygge og vokse en bedrift
+- Founder-retorikk som er både inspirerende og nyttig
+
+---
+
+## Hva dekker vi?
+
+| Kategori | TLDR | Horizon AI | A Smart Bear |
+|----------|------|------------|--------------|
+| AI & ML | ✅ | ✅✅ | ❌ |
+| Web Dev | ✅ | ❌ | ❌ |
+| Mobile | ✅ | ❌ | ❌ |
+| DevOps | ✅ | ❌ | ❌ |
+| Security | ✅ | ✅ | ❌ |
+| Tools | ✅ | ✅ | ❌ |
+| Business | ❌ | ❌ | ✅ |
+| Marketing | ❌ | ❌ | ✅ |
 
 ---
 
@@ -139,7 +210,7 @@ TLDR, Horizon AI og A Smart Bear.
 
 Hver uke på **Designr.Pro News**:
 
-1. **Topp 3-5 stories** fra ukens tech-nyheter
+1. **Topp 3-5 stories** fra TLDR + Horizon AI + A Smart Bear
 2. **Korte oppsummeringer** - ikke mer enn du trenger å vite
 3. **Lenker til original** - hvis du vil dykke dypere
 4. **Vår vurdering** - hva som faktisk er viktig
@@ -148,7 +219,7 @@ Hver uke på **Designr.Pro News**:
 
 ## Kom i gang
 
-Allerede abonnert? Bra! Vi sjekker kildene ukentlig og samler det beste her.
+Allerede abonnert? Bra! Vi sjekker begge kildene ukentlig og samler det beste her.
 
 **Neste oppdatering: mandag 24. mars 2026**
 

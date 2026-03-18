@@ -88,8 +88,8 @@ const newsPosts = [
     slug: 'uke-1',
     title: 'Welcome to Designr.Pro News',
     date: '18. mars 2026',
-    tags: ['Intro', 'Our Sources'],
-    excerpt: 'Why we chose TLDR and Horizon AI as our main news sources.'
+    tags: ['Intro'],
+    excerpt: 'Weekly tech news digest.'
   }
 ];
 
@@ -100,7 +100,7 @@ export default function News() {
       
       <SectionTitle>Weekly Tech Digest</SectionTitle>
       <p style={{ fontSize: '1.1rem', marginBottom: '1.5rem', color: '#292a2d' }}>
-        Vi samler ukens viktigste tech-nyheter fra TLDR og Horizon AI - på under 5 minutter.
+        Ukens viktigste tech-nyheter - på under 5 minutter.
       </p>
       
       <NewsGrid>
