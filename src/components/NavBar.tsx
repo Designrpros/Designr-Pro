@@ -4,20 +4,14 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 
-// 1. Declare gtag on the Window interface so TypeScript knows it exists
-// This should ideally be in a global declaration file (e.g., src/types/global.d.ts)
-// but can be placed here for quick fix if you don't have one yet.
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void; // Use '?' as gtag might not be available immediately
+    gtag?: (...args: any[]) => void;
   }
 }
 
-// Helper function to safely send GA4 events
-// 2. Explicitly type the parameters
 const sendGaEvent = (eventName: string, eventParams: Record<string, any>) => {
   if (typeof window !== 'undefined' && window.gtag) {
-    // No error here now because window.gtag is known to exist
     window.gtag('event', eventName, eventParams);
   }
 };
@@ -81,7 +75,6 @@ const LogoContainer = styled.div`
 `;
 
 export default function NavBar() {
-  // 3. Explicitly type the parameters here as well
   const handleNavLinkClick = (linkName: string, linkPath: string) => {
     sendGaEvent('navigation_click', {
       link_text: linkName,
@@ -115,6 +108,9 @@ export default function NavBar() {
         </StyledLink>
         <StyledLink href="/gallery">
           <NavLink onClick={() => handleNavLinkClick('Gallery', '/gallery')}>Gallery</NavLink>
+        </StyledLink>
+        <StyledLink href="/blog">
+          <NavLink onClick={() => handleNavLinkClick('Blog', '/blog')}>Blog</NavLink>
         </StyledLink>
       </NavLinks>
     </NavBarContainer>
