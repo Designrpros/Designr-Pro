@@ -111,6 +111,11 @@ const projectCategories = [
         description: 'The personal brand homepage and CV of a professional designer, showcasing various design projects, work philosophy, and professional experience.',
       },
       {
+        name: 'Berentsen Labs',
+        url: 'https://berentsenlabs.no',
+        description: 'AI & Web Development Studio - Building intelligent assistants and custom web solutions for businesses and individuals.',
+      },
+      {
         name: 'Alcatelz',
         url: 'https://www.alcatelz.com/',
         description: 'A personal portfolio page displaying various projects and outlining the creators work philosophy.',
