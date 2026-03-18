@@ -507,7 +507,11 @@ export default function Home() {
           © {new Date().getFullYear()} Berentsen Labs. All rights reserved.
         </p>
         <p className="font-sans">
-          VegarBerentsen@gmail.com | +47 485 96 755 | Ovenbakken 31 A, Østerås, Norway
+          <a href="mailto:designr.pros@gmail.com" style={{color: '#0d9488', textDecoration: 'none'}}>designr.pros@gmail.com</a> | +47 485 96 755 | Ovenbakken 31 A, Østerås, Norway
+        </p>
+        <p className="font-sans" style={{marginTop: '1rem'}}>
+          <Link href="/privacy-policy" style={{color: '#0d9488', marginRight: '1rem'}}>Privacy Policy</Link>
+          <Link href="/terms-of-service" style={{color: '#0d9488'}}>Terms of Service</Link>
         </p>
       </Footer>
     </Wrapper>
