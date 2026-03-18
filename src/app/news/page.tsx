@@ -137,7 +137,7 @@ const SuccessMessage = styled.p`
 
 function NewsletterSignup() {
   const [showForm, setShowForm] = useState(false);
-  const [state, handleSubmit] = useForm("xnqlwdqo");
+  const [state, handleSubmit] = useForm("mjgajapn");
   
   if (state.succeeded) {
     return <SuccessMessage>Thanks for subscribing! Check your inbox for confirmation.</SuccessMessage>;
@@ -175,9 +175,9 @@ export default function News() {
       
       <SectionTitle>Weekly Tech Digest</SectionTitle>
       <p style={{ fontSize: '1.1rem', marginBottom: '1.5rem', color: '#292a2d' }}>
-        The week's most important tech news - in under 5 minutes.
+        The week's most important tech news - in under 5 minutes. <NewsletterSignup />
       </p>
-      <NewsletterSignup />
+      
       
 
       <NewsGrid>
