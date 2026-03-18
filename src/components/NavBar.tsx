@@ -116,7 +116,6 @@ export default function NavBar() {
         <StyledLink href="/gallery">
           <NavLink onClick={() => handleNavLinkClick('Gallery', '/gallery')}>Gallery</NavLink>
         </StyledLink>
-        </StyledLink>
       </NavLinks>
     </NavBarContainer>
   );
