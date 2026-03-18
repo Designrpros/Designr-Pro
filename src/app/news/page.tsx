@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useForm, ValidationError } from '@formspree/react';
+import { useForm } from '@formspree/react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
@@ -153,7 +153,6 @@ function NewsletterSignup() {
       <Input type="email" name="email" placeholder="Your email" required />
       <Input type="hidden" name="source" value="Designr.Pro Newsletter" />
       <SubmitButton type="submit" disabled={state.submitting}>Subscribe</SubmitButton>
-      <ValidationError prefix="Email" field="email" errors={state.errors} />
     </SignupForm>
   );
 }
