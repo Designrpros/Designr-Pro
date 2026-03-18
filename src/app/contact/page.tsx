@@ -214,7 +214,6 @@ export default function Contact() {
             Email: <ContactLink href="mailto:vegarberentsen@gmail.com">designrpros@gmail.com</ContactLink>
           </ContactInfo>
           <ContactInfo>
-            // Phone: +47 485 96 755 (see contact form)
           </ContactInfo>
           <ContactInfo>Address: Ovenbakken 31 A, Østerås, Norway</ContactInfo>
         </SectionContent>
