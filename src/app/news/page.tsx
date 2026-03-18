@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
@@ -83,6 +85,79 @@ const Tag = styled.span`
   margin-right: 0.25rem;
 `;
 
+const SignupSection = styled.div`
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #e1e9f0;
+  border-radius: 8px;
+`;
+
+const SignupLink = styled.span`
+  color: #0d9488;
+  color: #0d9488;
+  color: #0d9488;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1rem;
+  &:hover { color: #e6c9a0; }
+`;
+
+const SignupForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  max-width: 280px;
+`;
+
+const Input = styled.input`
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  &:focus { outline: none; border-color: #0d9488; }
+`;
+
+const SubmitButton = styled.button`
+  background-color: #fddeb4;
+  color: #000000;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  &:hover { background-color: #e6c9a0; }
+`;
+
+const SuccessMessage = styled.p`
+  color: #0d9488;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+`;
+
+function NewsletterSignup() {
+  const [showForm, setShowForm] = useState(false);
+  const [state, handleSubmit] = useForm("xnqlwdqo");
+  
+  if (state.succeeded) {
+    return <SuccessMessage>Thanks for subscribing! Check your inbox for confirmation.</SuccessMessage>;
+  }
+  
+  if (!showForm) {
+    return <SignupLink onClick={() => setShowForm(true)}>Sign up</SignupLink>;
+  }
+  
+  return (
+    <SignupForm onSubmit={handleSubmit}>
+      <Input type="text" name="name" placeholder="Your name" required />
+      <Input type="email" name="email" placeholder="Your email" required />
+      <Input type="hidden" name="source" value="Designr.Pro Newsletter" />
+      <SubmitButton type="submit" disabled={state.submitting}>Subscribe</SubmitButton>
+      <ValidationError prefix="Email" field="email" errors={state.errors} />
+    </SignupForm>
+  );
+}
+
 const newsPosts = [
   {
     slug: 'uke-1',
@@ -100,9 +175,10 @@ export default function News() {
       
       <SectionTitle>Weekly Tech Digest</SectionTitle>
       <p style={{ fontSize: '1.1rem', marginBottom: '1.5rem', color: '#292a2d' }}>
-        The week's most important tech news - in under 5 minutes.
+        The week's most important tech news - in under 5 minutes. <NewsletterSignup />
       </p>
       
+
       <NewsGrid>
         {newsPosts.map(post => (
           <NewsCard key={post.slug} href={`/news/${post.slug}`}>

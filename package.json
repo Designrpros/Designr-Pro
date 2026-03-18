@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "babel-plugin-styled-components": "^2.1.4",
     "gray-matter": "^4.0.3",
     "next": "15.2.8",
