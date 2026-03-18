@@ -186,7 +186,7 @@ export default function Contact() {
       });
 
       if (response.ok) {
-        setStatus({ success: true, message: 'Takk! Meldingen din er sendt. Jeg svarer så snart jeg kan!' });
+        setStatus({ success: true, message: 'Thanks! Your message has been sent. I will reply as soon as possible!' });
         setFormData({ name: '', email: '', message: '' });
         setFormStarted(false);
         sendGaEvent('form_submit_success', {
