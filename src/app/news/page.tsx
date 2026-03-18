@@ -1,6 +1,7 @@
 'use client';
 
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const NewsContainer = styled.div`
   padding: 50px 20px;
@@ -29,40 +30,93 @@ const NewsTitle = styled.h1`
   margin-bottom: 2rem;
 `;
 
-const NewsContent = styled.div`
-  background-color: #e1e9f0;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+const SectionTitle = styled.h2`
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #292a2d;
+  background-color: #fddeb4;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+`;
+
+const NewsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
   width: 100%;
 `;
 
-const NewsText = styled.p`
-  font-size: 1.2rem;
-  color: #292a2d;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+const NewsCard = styled(Link)`
+  background-color: #e1e9f0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  display: block;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+  }
 `;
+
+const CardTitle = styled.h3`
+  font-size: 1.3rem;
+  color: #292a2d;
+  margin-bottom: 0.5rem;
+`;
+
+const CardDate = styled.p`
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+`;
+
+const Tag = styled.span`
+  background-color: #fddeb4;
+  color: #292a2d;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin-right: 0.25rem;
+`;
+
+const newsPosts = [
+  {
+    slug: 'uke-1',
+    title: 'Welcome to Designr.Pro News',
+    date: '18. mars 2026',
+    tags: ['Intro', 'Our Sources'],
+    excerpt: 'Why we chose TLDR and Horizon AI as our main news sources.'
+  }
+];
 
 export default function News() {
   return (
     <NewsContainer>
       <NewsTitle>News</NewsTitle>
-      <NewsContent>
-        <NewsText>
-          Coming Soon! Every week, we'll curate the most important tech news from TLDR 
-          and summarize the key takeaways for you.
-        </NewsText>
-        <NewsText>
-          Stay tuned for weekly tech updates covering:
-        </NewsText>
-        <ul>
-          <li>AI & Machine Learning developments</li>
-          <li>Web development trends</li>
-          <li>Mobile app news</li>
-          <li>Developer tools</li>
-        </ul>
-      </NewsContent>
+      
+      <SectionTitle>Weekly Tech Digest</SectionTitle>
+      <p style={{ fontSize: '1.1rem', marginBottom: '1.5rem', color: '#292a2d' }}>
+        Vi samler ukens viktigste tech-nyheter fra TLDR og Horizon AI - på under 5 minutter.
+      </p>
+      
+      <NewsGrid>
+        {newsPosts.map(post => (
+          <NewsCard key={post.slug} href={`/news/${post.slug}`}>
+            <CardTitle>{post.title}</CardTitle>
+            <CardDate>{post.date}</CardDate>
+            <div style={{ marginBottom: '0.5rem' }}>
+              {post.tags.map(tag => (
+                <Tag key={tag}>{tag}</Tag>
+              ))}
+            </div>
+            <p style={{ fontSize: '0.95rem', color: '#555' }}>{post.excerpt}</p>
+          </NewsCard>
+        ))}
+      </NewsGrid>
     </NewsContainer>
   );
 }

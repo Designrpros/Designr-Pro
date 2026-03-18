@@ -3,6 +3,7 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const PostContainer = styled.div`
   padding: 50px 20px;
@@ -48,6 +49,15 @@ const PostDate = styled.p`
   margin-bottom: 1.5rem;
 `;
 
+const Tag = styled.span`
+  background-color: #fddeb4;
+  color: #292a2d;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+`;
+
 const MarkdownContent = styled.div`
   font-size: 1.1rem;
   color: #292a2d;
@@ -74,12 +84,34 @@ const MarkdownContent = styled.div`
     padding-left: 1.5rem;
   }
   
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  
+  th, td {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #fddeb4;
+    font-weight: 600;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+  
   li {
     margin-bottom: 0.5rem;
   }
   
   strong {
-    font-weight: 600;
+    font-weight: 700;
+    color: #1a1a1a;
   }
   
   hr {
@@ -101,66 +133,113 @@ const BackLink = styled(Link)`
   }
 `;
 
-const postContent: Record<string, { title: string; date: string; content: string }> = {
-  'uke-12-2026': {
-    title: 'Uke 12, 2026',
-    date: '17. mars 2026',
+const newsPosts: Record<string, { 
+  title: string; 
+  date: string; 
+  tags: string[];
+  content: string 
+}> = {
+  'uke-1': {
+    title: 'Welcome to Designr.Pro News',
+    date: '18. mars 2026',
+    tags: ['Intro', 'Our Sources'],
     content: `
-Jeg har tenkt en del denne uken. Ikke bare på prosjektene våre, men på hvordan vi bygger og lærer. Det startet egentlig med en samtale om nettsidene våre - costofliving.no og nå Berentsen Labs - og endte opp med at vi samlet innhold fra Entreflâneur for å bygge vårt eget ukentlige nyhetsbrev.
+# Velkommen til Designr.Pro News!
 
-Det som slår meg er hvor lite som skal til for å komme i gang. For et år siden hadde jeg knapt tenkt på å bygge en "markedsplass for levekostnader i Europa". Nå er det 50+ land og 210+ byer. På samme måte startet alt med en prat om AI-assistenter, og nå har Berentsen Labs sin egen nettside.
-
-Det er noe med å bare starte. Ikke vente til alt er perfekt.
-
-En av postene jeg samlet denne uken var "AI Loops" fra Entreflâneur. Hovedpoenget var enkelt: AI som buzzword er ferdig. Alle skriker "AI" nå, så det å bare si at du bruker AI er ikke lenger nok. Folk vil vite HVORDAN du er unik. Det samme gjelder for alt vi bygger - vi må finne vår "unique mechanism".
-
-Så jeg har tenkt på hva som er vårt. Kanskje det er evnen til å kombinere teknisk kompetanse med en viss personlig stemme? Kanskje det er at vi faktisk bygger ting selv, ikke bare snakker om det? Jeg vet ikke enda, men jeg liker at vi leter.
-
-En annen post var "Business Autism" - et begrep venner og jeg bruker om folk som blir så oppslukt i business at de glemmer alt annet. Jeg kjenner meg igjen. De siste ukene har jeg jobbet mye, hatt lite sosial kontakt, og jeg merker at jeg blir litt rar. Ikke dårlig, bare... annerledes. Løsningen er enkel: komme seg ut. Jeg har satt en regel om å komme seg ut blant folk minst annenhver uke. Som en muskel - den atrofierer hvis du ikke bruker den.
-
-Og apropos systemer - "Delicious Systems" var nok en påminnelse. Min bedrift, og egentlig alt jeg driver med, fungerer bedre når det er dokumentert. Å lage SOPs (Standard Operating Procedures) føles kjedelig i øyeblikket, men det er kjedelig som skaper frihet.
-
-Vi har samlet 11 poster fra Entreflâneur nå, og det er kult å se mønsteret. Det handler egentlig om det samme gang på gang: vær unik, bygg systemer, unngå isolasjon, start nå.
-
-Når jeg tenker på uken som har gått, er jeg faktisk ganske stolt. Vi har bygget ting, vi har samlet innhold, vi har laget en metodologi for hvordan dette skal fungere fremover. costofliving.no er der ute og hjelper folk med reisebudsjett. Berentsen Labs har sin egen nettside. Designr.Pro er oppdatert. Vi har til og med en cron-jobb som sender meg nettside-ideer hver morgen kl 09:00.
-
-Det føles som vi er midt i et "obsession flywheel" - de første 20 minuttene suger, men så begynner det å bli gøy. Og jo mer vi gjør, jo mer gøy blir det.
+Vi har samlet de beste tech-nyhetene fra ukens nyhetsbrev og presenterer dem her for deg.
 
 ---
 
-## Ressurser denne uken
+## Hvorfor akkurat disse kildene?
 
-**Bøker:**
-- Breakthrough Advertising av Eugene Schwartz - Forstå markedssykluser
+### TLDR Newsletter
+**Hva det er:** Et daglig tech-nyhetsbrev som holder deg oppdatert på det viktigste innen programmering, AI og tech.
 
-**Verktøy:**
-- Loom - Video-SOPer med AI
-- Notion - Prosess-sjekklister  
-- Lucidchart - Prosess-kart
+**Hvorfor vi liker det:**
+- Kort og konsist - du får viktigste på under 5 minutter
+- Bred dekning av tech-verden
+- Ingen hype, bare fakta
+- Perfekt for utviklere og tech-entusiaster
 
-**Nettsider:**
-- [costofliving.no](https://costofliving.no) - Levekostnader i Europa
-- [wikits.net](https://wikits.net) - AI-drevet læring
-- [berentsenlabs.no](https://berentsenlabs.no) - Vår nye nettside
+**Abonnement:** \`dan@tldrnewsletter.com\` - Sendt daglig
+
+---
+
+### Horizon AI
+**Hva det er:** Et uke-brev (3x/uke) fra Gina Costa som fungerer som din personlige AI-forsker og oversetter.
+
+**Hvorfor vi liker det:**
+- Fokuserer kun på det viktigste i AI-verden
+- 3 minutter lesetid per utgave
+- Praktiske verktøy og tutorials
+- Personlig stemme - Gina graver selv gjennom nyhetene
+
+**Abonnement:** \`mail@joinhorizon.ai\` - Kom i gang 18. mars 2026
+
+---
+
+## Hva du kan forvente
+
+Hver uke på **Designr.Pro News**:
+
+1. **Topp 3-5 stories** fra TLDR + Horizon AI
+2. **Korte oppsummeringer** - ikke mer enn du trenger å vite
+3. **Lenker til original** - hvis du vil dykke dypere
+4. **Vår vurdering** - hva som faktisk er viktig
+
+---
+
+## Hva dekker vi?
+
+| Kategori | TLDR | Horizon AI |
+|----------|------|------------|
+| AI & ML | ✅ | ✅✅ (hovedfokus) |
+| Web Dev | ✅ | ❌ |
+| Mobile | ✅ | ❌ |
+| DevOps | ✅ | ❌ |
+| Security | ✅ | ✅ |
+| Tools | ✅ | ✅ |
+
+---
+
+## Kom i gang
+
+Allerede abonnert? Bra! Vi sjekker begge kildene ukentlig og samler det beste her.
+
+** Neste oppdatering: mandag 24. mars 2026**
+
+---
+
+*Designr.Pro News - Ukens tech-høydepunkter på under 5 minutter*
 `
   }
 };
 
-export default function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
-  const slug = 'uke-12-2026';
-  const post = postContent[slug] || { title: 'Post not found', date: '', content: 'Post not found' };
+export default function NewsPost({ params }: { params: Promise<{ slug: string }> }) {
+  const slug = 'uke-1';
+  const post = newsPosts[slug] || { 
+    title: 'Post not found', 
+    date: '', 
+    tags: [],
+    content: 'Post not found' 
+  };
 
   return (
     <PostContainer>
       <PostCard>
         <PostTitle>{post.title}</PostTitle>
         <PostDate>{post.date}</PostDate>
+        <div style={{ marginBottom: '1rem' }}>
+          {post.tags.map(tag => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
+        </div>
         <MarkdownContent>
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
         </MarkdownContent>
       </PostCard>
       
-      <BackLink href="/blog">← Tilbake til blogg</BackLink>
+      <BackLink href="/news">← Tilbake til News</BackLink>
     </PostContainer>
   );
 }
