@@ -510,8 +510,8 @@ export default function Home() {
           <a href="mailto:designr.pros@gmail.com" style={{color: '#0d9488', textDecoration: 'none'}}>designr.pros@gmail.com</a> | +47 485 96 755 | Ovenbakken 31 A, Østerås, Norway
         </p>
         <p className="font-sans" style={{marginTop: '1rem'}}>
-          <Link href="/privacy-policy" style={{color: '#0d9488', marginRight: '1rem'}}>Privacy Policy</Link>
-          <Link href="/terms-of-service" style={{color: '#0d9488'}}>Terms of Service</Link>
+          <a href="/privacy-policy" style={{color: '#0d9488', marginRight: '1rem'}}>Privacy Policy</a>
+          <a href="/terms-of-service" style={{color: '#0d9488'}}>Terms of Service</a>
         </p>
       </Footer>
     </Wrapper>
