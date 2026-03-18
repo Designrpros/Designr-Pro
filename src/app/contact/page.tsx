@@ -211,7 +211,7 @@ export default function Contact() {
         <SectionTitle>Get in Touch</SectionTitle>
         <SectionContent>
           <ContactInfo>
-            Email: <ContactLink href="mailto:vegarberentsen@gmail.com">VegarBerentsen@gmail.com</ContactLink>
+            Email: <ContactLink href="mailto:vegarberentsen@gmail.com">designrpros@gmail.com</ContactLink>
           </ContactInfo>
           <ContactInfo>
             Phone: <ContactLink href="tel:+4748596755">+47 485 96 755</ContactLink>
