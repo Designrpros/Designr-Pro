@@ -175,8 +175,9 @@ export default function News() {
       
       <SectionTitle>Weekly Tech Digest</SectionTitle>
       <p style={{ fontSize: '1.1rem', marginBottom: '1.5rem', color: '#292a2d' }}>
-        The week's most important tech news - in under 5 minutes. <NewsletterSignup />
+        The week's most important tech news - in under 5 minutes.
       </p>
+      <NewsletterSignup />
       
 
       <NewsGrid>
