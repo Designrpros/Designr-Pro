@@ -30,14 +30,14 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         {/* Google Analytics Script */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Z5EH0V3ZQ"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6T12SL53MD"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-98HRKN6MFS');
+              gtag('config', 'G-6T12SL53MD');
             `,
           }}
         />
