@@ -104,7 +104,7 @@ export default function Blog() {
   const posts = [
     {
       slug: 'uke-12-2026',
-      title: 'Uke 12, 2026 - Alcatelz Kom Til Livs',
+      title: 'Uke 12, 2026 - Maskinene Tar Over, Men Hvem Eier Dem?',
       date: '23. mars 2026',
       image: '/assets/blog/uke-12-2026.jpg',
       excerpt: 'Endelig en autonom versjon av meg selv. Hva har vi bygget denne uken? Alcatelz.social, separate database-servere, og bildene som ikke ville vises.',
