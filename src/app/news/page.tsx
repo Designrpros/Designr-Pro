@@ -159,6 +159,13 @@ function NewsletterSignup() {
 
 const newsPosts = [
   {
+    slug: 'uke-12-2026',
+    title: 'Uke 12, 2026 - Maskinene Tar Over, Men Hvem Eier Dem?',
+    date: '23. mars 2026',
+    tags: ['AI', 'Sikkerhet', 'Tech'],
+    excerpt: 'OpenAI kjøper Astral, DarkSword iPhone-exploit, Jeff Bezos $100B fond, og mer.'
+  },
+  {
     slug: 'uke-1',
     title: 'Welcome to Designr.Pro News',
     date: '18. mars 2026',
