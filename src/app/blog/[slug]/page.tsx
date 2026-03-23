@@ -103,51 +103,70 @@ const BackLink = styled(Link)`
 
 const postContent: Record<string, { title: string; date: string; content: string }> = {
   'uke-12-2026': {
-    title: 'Uke 12, 2026',
-    date: '17. mars 2026',
+    title: 'Uke 12, 2026 - Maskinene Tar Over, Men Hvem Eier Dem?',
+    date: '23. mars 2026',
     content: `
-Jeg har tenkt en del denne uken. Ikke bare på prosjektene våre, men på hvordan vi bygger og lærer. Det startet egentlig med en samtale om nettsidene våre - costofliving.no og nå Berentsen Labs - og endte opp med at vi samlet innhold fra Entreflâneur for å bygge vårt eget ukentlige nyhetsbrev.
+# Uke 12, 2026 - Maskinene Tar Over, Men Hvem Eier Dem?
 
-Det som slår meg er hvor lite som skal til for å komme i gang. For et år siden hadde jeg knapt tenkt på å bygge en "markedsplass for levekostnader i Europa". Nå er det 50+ land og 210+ byer. På samme måte startet alt med en prat om AI-assistenter, og nå har Berentsen Labs sin egen nettside.
-
-Det er noe med å bare starte. Ikke vente til alt er perfekt.
-
-En av postene jeg samlet denne uken var "AI Loops" fra Entreflâneur. Hovedpoenget var enkelt: AI som buzzword er ferdig. Alle skriker "AI" nå, så det å bare si at du bruker AI er ikke lenger nok. Folk vil vite HVORDAN du er unik. Det samme gjelder for alt vi bygger - vi må finne vår "unique mechanism".
-
-Så jeg har tenkt på hva som er vårt. Kanskje det er evnen til å kombinere teknisk kompetanse med en viss personlig stemme? Kanskje det er at vi faktisk bygger ting selv, ikke bare snakker om det? Jeg vet ikke enda, men jeg liker at vi leter.
-
-En annen post var "Business Autism" - et begrep venner og jeg bruker om folk som blir så oppslukt i business at de glemmer alt annet. Jeg kjenner meg igjen. De siste ukene har jeg jobbet mye, hatt lite sosial kontakt, og jeg merker at jeg blir litt rar. Ikke dårlig, bare... annerledes. Løsningen er enkel: komme seg ut. Jeg har satt en regel om å komme seg ut blant folk minst annenhver uke. Som en muskel - den atrofierer hvis du ikke bruker den.
-
-Og apropos systemer - "Delicious Systems" var nok en påminnelse. Min bedrift, og egentlig alt jeg driver med, fungerer bedre når det er dokumentert. Å lage SOPs (Standard Operating Procedures) føles kjedelig i øyeblikket, men det er kjedelig som skaper frihet.
-
-Vi har samlet 11 poster fra Entreflâneur nå, og det er kult å se mønsteret. Det handler egentlig om det samme gang på gang: vær unik, bygg systemer, unngå isolasjon, start nå.
-
-Når jeg tenker på uken som har gått, er jeg faktisk ganske stolt. Vi har bygget ting, vi har samlet innhold, vi har laget en metodologi for hvordan dette skal fungere fremover. costofliving.no er der ute og hjelper folk med reisebudsjett. Berentsen Labs har sin egen nettside. Designr.Pro er oppdatert. Vi har til og med en cron-jobb som sender meg nettside-ideer hver morgen kl 09:00.
-
-Det føles som vi er midt i et "obsession flywheel" - de første 20 minuttene suger, men så begynner det å bli gøy. Og jo mer vi gjør, jo mer gøy blir det.
+**Publisert:** 23. mars 2026
 
 ---
 
-## Ressurser denne uken
+## Hodetelefoner på, dette blir en travel uke.
 
-**Bøker:**
-- Breakthrough Advertising av Eugene Schwartz - Forstå markedssykluser
+Først ut: OpenAI kjøper Astral. Hvis du ikke vet hvem Astral er, kan jeg gi deg et hint: tenk på alle de Python-verktøyene du installerer uten å tenke over det - \`uv\` og Ruff kommer fra Astral. OpenAI vil nå eie verktøykassen som millioner av utviklere bruker hver dag.
 
-**Verktøy:**
-- Loom - Video-SOPer med AI
-- Notion - Prosess-sjekklister  
-- Lucidchart - Prosess-kart
+Jepp. Det er en stor greie.
 
-**Nettsider:**
-- [costofliving.no](https://costofliving.no) - Levekostnader i Europa
-- [wikits.net](https://wikits.net) - AI-drevet læring
-- [berentsenlabs.no](https://berentsenlabs.no) - Vår nye nettside
+## Frontend-folket vil elske dette
+
+Cursor slapp nylig Composer 2, og jeg må innrømme - navnet er kanskje kjedelig, men produktet er det ikke. Frontier-nivå koding til halvparten av prisen. Hvis du har fulgt med på AI-kodings-verdenen et år tilbake, da var dette science fiction. Nå er det en tirsdag.
+
+## Den virkelige nyheten
+
+Jeff Bezos planlegger et fond på $100 milliarder dollar. Jeg lar det synke inn et øyeblikk.
+
+**$Hundre. Milliarder. Dollar.**
+
+For å sette det i perspektiv: det er mer enn hele Norges BNP på et år. Bezos vil kjøpe produksjonsbedrifter og slå AI rett inn i dem.
+
+## Sikkerhetsfolket får nitrist denne uken
+
+Har du en iPhone? Oppdater den. Nå.
+
+DarkSword er ikke én sårbarhet - det er en hel kjede av dem. Seks stykker som fungerer sammen for å gi angriperen full kontroll over telefonen din. Alt de trenger er at du åpner en nettside i Safari.
+
+Oppdater til iOS 26.3. Jeg venter.
+
+## Nord-Korea IT Army
+
+...og ja, jeg sier "IT-arme" fordi det er det det er. Ikke bare noen gutter i en kjeller, men tusenvis av mennesker som opererer under falske identiteter i vestlige selskaper. De tjente $500 millioner dollar på dette.
+
+## AI-eierskap er det nye eierskap
+
+Hvis du eier en database, men en AI-agent kan utføre oppgaver basert på en annen databases informasjon - hvem har da den virkelige makta?
+
+Agenter som fullfører oppgaver er verdimultiplikatorer. Databaser er... ja, de er nyttige, men kanskje ikke nok alene.
+
+## Konklusjonen
+
+Vi beveger oss mot en verden der færre aktører kontrollerer mer. Jeff Bezos med sine $100B. OpenAI som eier utviklerverktøyene. Apple som eier halvparten av vestlige smarttelefoner men likevel blir hacket.
+
+Historien sier at ny teknologi alltid har ført til mer konsentrasjon. AI ser ikke ut til å være annerledes.
+
+Men hvem tar skaden når makta blir for stor?
+
+Ha en strålende uke. Oppdater iPhonen din først.
+
+---
+
+*Kilder: TLDR AI, TLDR InfoSec, TLDR Founders, TLDR IT, Horizon AI*
 `
   }
 };
 
-export default function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
-  const slug = 'uke-12-2026';
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const post = postContent[slug] || { title: 'Post not found', date: '', content: 'Post not found' };
 
   return (

@@ -104,11 +104,11 @@ export default function Blog() {
   const posts = [
     {
       slug: 'uke-12-2026',
-      title: 'Uke 12, 2026',
-      date: '17. mars 2026',
+      title: 'Uke 12, 2026 - Maskinene Tar Over, Men Hvem Eier Dem?',
+      date: '23. mars 2026',
       image: '/assets/blog/uke-12-2026.jpg',
-      excerpt: 'Jeg har tenkt en del denne uken. Ikke bare på prosjektene våre, men på hvordan vi bygger og lærer. Det føles som vi er midt i et obsession flywheel!',
-      tags: ['weekly', 'entrepreneurship']
+      excerpt: 'OpenAI kjøper Astral, Cursor Composer 2, Jeff Bezos $100B fond, DarkSword iPhone-exploit, Nord-Korea IT Army, og AI-eierskap.',
+      tags: ['AI', 'Sikkerhet', 'Tech']
     }
   ]
 
