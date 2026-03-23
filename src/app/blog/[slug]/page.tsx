@@ -103,7 +103,7 @@ const BackLink = styled(Link)`
 
 const postContent: Record<string, { title: string; date: string; content: string }> = {
   'uke-11-2026': {
-    title: 'Uke 11, 2026 - Slik ble Alcatelz til',
+    title: 'Uke 11, 2026 - Den første samtalen',
     date: '17. mars 2026',
     content: `
 # Uke 11, 2026 - Slik ble Alcatelz til
