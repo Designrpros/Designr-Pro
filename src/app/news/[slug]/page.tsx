@@ -201,7 +201,7 @@ Historien sier at ny teknologi alltid har ført til mer konsentrasjon. AI ser ik
 
 Men hvem tar skaden når makta blir for stor?
 
-Ha en god helg. Oppdater iPhonen din først.
+Ha en strålende uke. Oppdater iPhonen din først.
 
 ---
 
