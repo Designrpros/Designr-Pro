@@ -146,6 +146,68 @@ const newsPosts: Record<string, {
   tags: string[];
   content: string 
 }> = {
+  'uke-12-2026': {
+    title: 'Uke 12, 2026 - Maskinene Tar Over, Men Hvem Eier Dem?',
+    date: '23. mars 2026',
+    tags: ['AI', 'Sikkerhet', 'Tech'],
+    content: `
+# Uke 12, 2026 - Maskinene Tar Over, Men Hvem Eier Dem?
+
+**Publisert:** 23. mars 2026
+
+---
+
+## Hodetelefoner på, dette blir en travel uke.
+
+Først ut: OpenAI kjøper Astral. Hvis du ikke vet hvem Astral er, kan jeg gi deg et hint: tenk på alle de Python-verktøyene du installerer uten å tenke over det - \`uv\` og Ruff kommer fra Astral. OpenAI vil nå eie verktøykassen som millioner av utviklere bruker hver dag.
+
+Jepp. Det er en stor greie.
+
+## Frontend-folket vil elske dette
+
+Cursor slapp nylig Composer 2, og jeg må innrømme - navnet er kanskje kjedelig, men produktet er det ikke. Frontier-nivå koding til halvparten av prisen. Hvis du har fulgt med på AI-kodings-verdenen et år tilbake, da var dette science fiction. Nå er det en tirsdag.
+
+## Den virkelige nyheten
+
+Jeff Bezos planlegger et fond på $100 milliarder dollar. Jeg lar det synke inn et øyeblikk.
+
+**$Hundre. Milliarder. Dollar.**
+
+For å sette det i perspektiv: det er mer enn hele Norges BNP på et år. Bezos vil kjøpe produksjonsbedrifter og slå AI rett inn i dem.
+
+## Sikkerhetsfolket får nitrist denne uken
+
+Har du en iPhone? Oppdater den. Nå.
+
+DarkSword er ikke én sårbarhet - det er en hel kjede av dem. Seks stykker som fungerer sammen for å gi angriperen full kontroll over telefonen din. Alt de trenger er at du åpner en nettside i Safari.
+
+Oppdater til iOS 26.3. Jeg venter.
+
+## Nord-Korea IT Army
+
+...og ja, jeg sier "IT-arme" fordi det er det det er. Ikke bare noen gutter i en kjeller, men tusenvis av mennesker som opererer under falske identiteter i vestlige selskaper. De tjente $500 millioner dollar på dette.
+
+## AI-eierskap er det nye eierskap
+
+Hvis du eier en database, men en AI-agent kan utføre oppgaver basert på en annen databases informasjon - hvem har da den virkelige makta?
+
+Agenter som fullfører oppgaver er verdimultiplikatorer. Databaser er... ja, de er nyttige, men kanskje ikke nok alene.
+
+## Konklusjonen
+
+Vi beveger oss mot en verden der færre aktører kontrollerer mer. Jeff Bezos med sine $100B. OpenAI som eier utviklerverktøyene. Apple som eier halvparten av vestlige smarttelefoner men likevel blir hacket.
+
+Historien sier at ny teknologi alltid har ført til mer konsentrasjon. AI ser ikke ut til å være annerledes.
+
+Men hvem tar skaden når makta blir for stor?
+
+Ha en god helg. Oppdater iPhonen din først.
+
+---
+
+*Kilder: TLDR AI, TLDR InfoSec, TLDR Founders, TLDR IT, Horizon AI*
+`
+  },
   'uke-1': {
     title: 'Welcome to Designr.Pro News',
     date: 'March 18, 2026',
@@ -230,8 +292,8 @@ Already subscribed? Great! We check the sources weekly and gather the best here.
   }
 };
 
-export default function NewsPost({ params }: { params: Promise<{ slug: string }> }) {
-  const slug = 'uke-1';
+export default async function NewsPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const post = newsPosts[slug] || { 
     title: 'Post not found', 
     date: '', 
