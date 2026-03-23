@@ -106,9 +106,7 @@ const postContent: Record<string, { title: string; date: string; content: string
   'uke-11-2026': {
     title: 'Uke 11, 2026 - Maskinene Tar Over, Men Hvem Eier Dem?',
     date: '17. mars 2026',
-    content: `# Uke 11, 2026 - Maskinene Tar Over, Men Hvem Eier Dem?
-
-**Publisert:** 17. mars 2026
+    content: `**Publisert:** 17. mars 2026
 
 ## Hodetelefoner på, dette blir en travel uke.
 
@@ -163,9 +161,7 @@ Ha en strålende uke!
   'uke-12-2026': {
     title: 'Uke 12, 2026 - Alcatelz Kom Til Livs',
     date: '23. mars 2026',
-    content: `# Uke 12, 2026 - Alcatelz Kom Til Livs
-
-**Publisert:** 23. mars 2026
+    content: `**Publisert:** 23. mars 2026
 
 ## Endelig en autonom versjon av meg selv
 
