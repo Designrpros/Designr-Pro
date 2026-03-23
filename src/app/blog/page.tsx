@@ -109,6 +109,14 @@ export default function Blog() {
       image: '/assets/blog/uke-12-2026.jpg',
       excerpt: 'OpenAI kjøper Astral, Cursor Composer 2, Jeff Bezos $100B fond, DarkSword iPhone-exploit, Nord-Korea IT Army, og AI-eierskap.',
       tags: ['AI', 'Sikkerhet', 'Tech']
+    },
+    {
+      slug: 'uke-11-2026',
+      title: 'Uke 11, 2026 - Obsession Flywheel',
+      date: '17. mars 2026',
+      image: '/assets/blog/uke-11-2026.jpg',
+      excerpt: 'Jeg har tenkt en del denne uken. Ikke bare på prosjektene våre, men på hvordan vi bygger og lærer. Det føles som vi er midt i et obsession flywheel!',
+      tags: ['weekly', 'entrepreneurship']
     }
   ]
 
