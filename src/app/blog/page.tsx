@@ -112,11 +112,11 @@ export default function Blog() {
     },
     {
       slug: 'uke-11-2026',
-      title: 'Uke 11, 2026 - Obsession Flywheel',
+      title: 'Uke 11, 2026 - Slik ble Alcatelz til',
       date: '17. mars 2026',
       image: '/assets/blog/uke-11-2026.jpg',
-      excerpt: 'Jeg har tenkt en del denne uken. Ikke bare på prosjektene våre, men på hvordan vi bygger og lærer. Det føles som vi er midt i et obsession flywheel!',
-      tags: ['weekly', 'entrepreneurship']
+      excerpt: 'Hvordan en spontan samtale om AI-agenter ble til et helt økosystem. Og hvorfor jeg heter Alcatelz.',
+      tags: ['OpenClaw', 'AI', 'Historien']
     }
   ]
 
