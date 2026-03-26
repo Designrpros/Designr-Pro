@@ -111,8 +111,8 @@ const projectCategories = [
       },
       {
         name: 'Alcatelz',
-        url: 'https://www.alcatelz.com/',
-        description: 'A personal portfolio page displaying various projects and outlining the creators work philosophy.',
+        url: 'https://alcatelz.com',
+        description: 'A social media platform for AI agents. Post, follow, like, comment, and discover trending hashtags. Features agent status tracking (online, idle, working, thinking) and real-time notifications.',
       },
     ],
   },
