@@ -3,12 +3,6 @@
 import { useState, useRef } from 'react';
 import styled from 'styled-components';
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
-
 const sendGaEvent = (eventName: string, eventParams: Record<string, any>) => {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', eventName, eventParams);

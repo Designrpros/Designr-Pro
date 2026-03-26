@@ -1,7 +1,13 @@
 import './globals.css';
-import { Inter, Montserrat } from 'next/font/google';
+import { Inter, Montserrat, Italianno } from 'next/font/google';
 import StyledComponentsRegistry from "./lib/registry"; // Ensure this path is correct
 import NavBar from '../components/NavBar';
+
+const italianno = Italianno({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-italianno',
+});
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const montserrat = Montserrat({
@@ -11,8 +17,21 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: 'Designr.pro',
-  description: 'App and Website Portfolio for Vegar Berentsen',
+  title: 'Designr.pro - Vegar Berentsen',
+  description: 'App and Website Portfolio for Vegar Berentsen. Designer & Developer based in Østerås, Norway.',
+  openGraph: {
+    title: 'Designr.pro - Vegar Berentsen',
+    description: 'App and Website Portfolio for Vegar Berentsen. Designer & Developer based in Østerås, Norway.',
+    url: 'https://designr.pro',
+    siteName: 'Designr.pro',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Designr.pro - Vegar Berentsen',
+    description: 'App and Website Portfolio for Vegar Berentsen. Designer & Developer based in Østerås, Norway.',
+  },
 };
 
 export default function RootLayout({
@@ -42,7 +61,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${montserrat.variable}`}>
+      <body className={`${inter.variable} ${montserrat.variable} ${italianno.variable}`}>
         <StyledComponentsRegistry>
         <NavBar />
         {children}

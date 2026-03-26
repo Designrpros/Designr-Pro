@@ -14,12 +14,6 @@ interface CategoryState {
 // Declare gtag on the Window interface so TypeScript knows it exists
 // (This block should ideally be in a global declaration file like `src/types/global.d.ts`
 // or `next-env.d.ts` if you have one, to avoid repetition.)
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
-
 // Helper function to safely send GA4 events
 const sendGaEvent = (eventName: string, eventParams: Record<string, any>) => {
   if (typeof window !== 'undefined' && window.gtag) {

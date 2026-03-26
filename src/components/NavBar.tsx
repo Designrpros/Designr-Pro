@@ -4,12 +4,6 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
-
 const sendGaEvent = (eventName: string, eventParams: Record<string, any>) => {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', eventName, eventParams);
@@ -56,7 +50,7 @@ const NavLink = styled.a`
   font-weight: 500;
   text-decoration: none !important;
   padding: 0.5rem 0;
-  font-family: 'Italianno', cursive;
+  font-family: var(--font-italianno), cursive;
   &:hover {
     text-decoration: none !important;
   }
