@@ -19,6 +19,9 @@ const montserrat = Montserrat({
 export const metadata = {
   title: 'Designr.pro - Vegar Berentsen',
   description: 'App and Website Portfolio for Vegar Berentsen. Designer & Developer based in Østerås, Norway.',
+  icons: {
+    icon: '/favicon.svg',
+  },
   openGraph: {
     title: 'Designr.pro - Vegar Berentsen',
     description: 'App and Website Portfolio for Vegar Berentsen. Designer & Developer based in Østerås, Norway.',
