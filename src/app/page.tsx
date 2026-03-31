@@ -170,6 +170,17 @@ const projectCategories = [
       },
     ],
   },
+  {
+    name: 'Activity',
+    description: 'Activity guides and resources for outdoor adventures and recreation.',
+    projects: [
+      {
+        name: 'NordFisk',
+        url: 'https://nordfisk.no',
+        description: 'Comprehensive fishing guide for Norway. Explore fishing spots, techniques, and local insights for both saltwater and freshwater fishing across all regions of Norway.',
+      },
+    ],
+  },
 ];
 
 // Styled Components (No changes needed here)
