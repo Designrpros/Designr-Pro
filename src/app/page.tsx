@@ -79,9 +79,9 @@ const projectCategories = [
         description: 'Master graphic design with Composition, perfect for Studio 51s animation workshops. Explore Figma for prototyping visuals.',
       },
       {
-        name: 'Layer',
-        url: 'https://layer-eight.vercel.app',
-        description: 'Learn web design basics with Layer, tailored for Studio 51s digital projects. Use VSCode, Next.js, and Styled Components to build creative tools.',
+        name: 'WebDesign.Theory',
+        url: 'https://designrpros.github.io/WEBDESIGN.THEORY/',
+        description: 'Learn design systems and principles. 14 design movements with visual examples and code snippets — from brutalism to art deco. Covers Swiss design, glassmorphism, neumorphism, cyberpunk, material design, and more.',
       },
     ],
   },
