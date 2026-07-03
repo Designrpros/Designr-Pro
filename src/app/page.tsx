@@ -101,7 +101,7 @@ const projectCategories = [
       },
       {
         name: 'Designr.pro',
-        url: 'https://designrpro.vercel.app',
+        url: 'https://designr.pro',
         description: 'The personal brand homepage and CV of a professional designer, showcasing various design projects, work philosophy, and professional experience.',
       },
       {
