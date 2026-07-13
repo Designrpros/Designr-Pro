@@ -33,6 +33,11 @@ const projectCategories = [
         description: 'A comprehensive workspace that minimizes context switching by bringing research, content creation, and AI assistance into a single, instantly accessible window. Features instant global access, intelligent landing page, integrated note editor, AI assistant, full tab management, session history, and personalized appearance.',
       },
       {
+        name: 'Free Flow',
+        url: 'https://freeflow-freestyle.vercel.app',
+        description: 'Your digital freestyle and lyricism partner. The ultimate toolkit for rappers, poets, and songwriters to spark ideas and perfect their craft with word suggestions, rhyme helpers, and creative prompts.',
+      },
+      {
         name: 'Mapr Atlas',
         url: 'https://apps.apple.com/no/app/mapr-atlas/id6752829712?l=nb', // Replace with actual App Store URL
         description: 'Your comprehensive guide to global economics, markets, and demographics. Features interactive world atlas with economic data visualization, global markets tracking, AI assistant for contextual summaries, currency converter, and unit converter. Pro version offers unlimited AI queries and advanced analytical tools.',
@@ -140,22 +145,15 @@ const projectCategories = [
         url: 'https://holicven.vercel.app',
         description: 'A coffee shop initiative under Akthe, providing employment opportunities and support for individuals in need, aiming to integrate them into the workforce and community.',
       },
-    ],
-  },
-  {
-    name: 'Special Projects',
-    description: 'Unique initiatives spanning virtual reality and cultural community events.',
-    projects: [
       {
         name: 'Prima',
         url: 'https://prima-vr.vercel.app',
         description: 'A platform offering VR experiences aimed at enhancing the lifestyle and wellness of older adults.',
       },
-
       {
         name: 'Sandvika Platemesse',
         url: 'https://sandvikaplatemesse.no',
-        description: 'A vibrant vinyl record fair held on May 10-11 at Kadettangen 18, featuring music, culture, and community spirit. Organized by Høl i CVen, it offers live performances by artists like LIORA, a fresh tea stand, and an afterparty, creating a nostalgic and engaging local experience.'
+        description: 'A vibrant vinyl record fair held on May 10-11 at Kadettangen 18, featuring music, culture, and community spirit. Organized by Høl i CVen, it offers live performances by artists like LIORA, a fresh tea stand, and an afterparty, creating a nostalgic and engaging local experience.',
       },
     ],
   },
@@ -178,6 +176,17 @@ const projectCategories = [
         name: 'NordFisk',
         url: 'https://designrpros.github.io/nordfisk/',
         description: 'Comprehensive fishing guide for Norway. Explore fishing spots, techniques, and local insights for both saltwater and freshwater fishing across all regions of Norway.',
+      },
+    ],
+  },
+  {
+    name: 'Games',
+    description: 'Interactive gaming experiences built for macOS and iOS.',
+    projects: [
+      {
+        name: 'The Lineup',
+        url: 'https://thelineup.world',
+        description: 'Surf the 100 best waves on Earth. A surf simulator and travel game with live weather data over every spot. Features 5 break types (Point, Reef, Beach, Slab, Big Wave) across 28 countries, Sessions mode, Live Forecast, Spots Dictionary, and a full Surf & Travel career mode. Coming soon to macOS and iOS.',
       },
     ],
   },
