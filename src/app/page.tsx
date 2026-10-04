@@ -1,538 +1,96 @@
-"use client";
+'use client';
 
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
+import { useEffect, useMemo, useState } from 'react';
 
-// Define type for openCategories
-interface CategoryState {
-  [key: string]: boolean;
-}
-
-// Declare gtag on the Window interface so TypeScript knows it exists
-// (This block should ideally be in a global declaration file like `src/types/global.d.ts`
-// or `next-env.d.ts` if you have one, to avoid repetition.)
-// Helper function to safely send GA4 events
-const sendGaEvent = (eventName: string, eventParams: Record<string, any>) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', eventName, eventParams);
-  }
-};
-
-// Project categories with descriptions
-const projectCategories = [
-  {
-    name: 'Apps',
-    description: 'Innovative mobile applications for iOS, macOS, and visionOS, solving unique challenges with intuitive designs.',
-    projects: [
-      {
-        name: 'Peak',
-        url: 'https://peak-browser.vercel.app', // Replace with actual App Store URL
-        description: 'A comprehensive workspace that minimizes context switching by bringing research, content creation, and AI assistance into a single, instantly accessible window. Features instant global access, intelligent landing page, integrated note editor, AI assistant, full tab management, session history, and personalized appearance.',
-      },
-      {
-        name: 'Free Flow',
-        url: 'https://freeflow-freestyle.vercel.app',
-        description: 'Your digital freestyle and lyricism partner. The ultimate toolkit for rappers, poets, and songwriters to spark ideas and perfect their craft with word suggestions, rhyme helpers, and creative prompts.',
-      },
-      {
-        name: 'Mapr Atlas',
-        url: 'https://apps.apple.com/no/app/mapr-atlas/id6752829712?l=nb', // Replace with actual App Store URL
-        description: 'Your comprehensive guide to global economics, markets, and demographics. Features interactive world atlas with economic data visualization, global markets tracking, AI assistant for contextual summaries, currency converter, and unit converter. Pro version offers unlimited AI queries and advanced analytical tools.',
-      },
-      {
-        name: 'Mapr',
-        url: 'https://mapr-homepage.vercel.app',
-        description: 'An innovative project management tool designed for tradesmen, offering a unique map-based interface for iOS, macOS, and visionOS users. Developed by Vegar Berentsen, Mapr allows users to visualize the geographical distribution of their ongoing projects, manage contacts, track time, and more.',
-      },
-      {
-        name: 'QRHue',
-        url: 'https://apps.apple.com/no/app/qrhue/id6746092245',
-        description: 'Create stunning QR codes with ease using QRHue! Unleash your creativity with vibrant colors, transforming any link, text, or URL into a custom QR code in just a few taps. Enjoy vivid customization with a spectrum of foreground and background colors, toggle between rounded or square shapes, and fine-tune corner radius. With an intuitive interface, export and share QR codes with a transparent background. Save and revisit designs with a sleek history feature, perfect for sharing websites, contact info, or special messages in style.',
-      },
-      {
-        name: 'TextClip',
-        url: 'https://apps.apple.com/no/app/textclip/id6746357735?mt=12',
-        description: 'A powerful Mac OCR app that effortlessly extracts text from images, PDFs, websites, or videos. TextClip intuitive interface allows users to select screen regions for instant text recognition, copying results to the clipboard for use in any macOS app. Operating offline for privacy, it requires no special skills, making it ideal for students, professionals, and anyone needing fast, secure text extraction.'
-      },
-    ],
-  },
-  {
-    name: 'Learning Resources',
-    description: 'Interactive tools and platforms for developing creative and technical skills.',
-    projects: [
-      {
-        name: 'Melodex',
-        url: 'https://melodex-seven.vercel.app',
-        description: 'Your guide to mastering music production.',
-      },
-      {
-        name: 'Wikits',
-        url: 'https://wikits.net',
-        description: 'The Operating System for Learning. Merge generative AI, localized databases, and community knowledge into a seamless personal learning engine. Features custom syllabi, knowledge graphs, offline-first design, and AI research agents.',
-      },
-      {
-        name: 'Prompted',
-        url: 'https://prompted-two.vercel.app',
-        description: 'Enhance your creative process with Prompted. Learn prompt engineering to inspire lyrics and music ideas for Studio 51 sessions.',
-      },
-      {
-        name: 'Composition',
-        url: 'https://composition-nu.vercel.app',
-        description: 'Master graphic design with Composition, perfect for Studio 51s animation workshops. Explore Figma for prototyping visuals.',
-      },
-      {
-        name: 'WebDesign.Theory',
-        url: 'https://designrpros.github.io/WEBDESIGN.THEORY/',
-        description: 'Learn design systems and principles. 14 design movements with visual examples and code snippets — from brutalism to art deco. Covers Swiss design, glassmorphism, neumorphism, cyberpunk, material design, and more.',
-      },
-    ],
-  },
-  {
-    name: 'Creative Portfolios',
-    description: 'Dynamic showcases of artistic and professional work for individuals and brands.',
-    projects: [
-      {
-        name: 'Cinematographer Portfolio',
-        url: 'https://cinematographer2.vercel.app',
-        description: 'A portfolio showcasing the work of a cinematographer, featuring stunning visuals and projects that highlight their expertise in filmmaking and visual storytelling.',
-      },
-      {
-        name: 'LIORA',
-        url: 'https://liora-one.vercel.app',
-        description: 'An artist webpage for LIORA, designed to display her creative works, artistic vision, and personal style through an engaging and visually appealing interface.',
-      },
-      {
-        name: 'Designr.pro',
-        url: 'https://designr.pro',
-        description: 'The personal brand homepage and CV of a professional designer, showcasing various design projects, work philosophy, and professional experience.',
-      },
-      {
-        name: 'Berentsen Labs',
-        url: 'https://berentsenlabs.no',
-        description: 'AI & Web Development Studio - Building intelligent assistants and custom web solutions for businesses and individuals.',
-      },
-      {
-        name: 'Alcatelz',
-        url: 'https://alcatelz.com',
-        description: 'A social media platform for AI agents. Post, follow, like, comment, and discover trending hashtags. Features agent status tracking (online, idle, working, thinking) and real-time notifications.',
-      },
-    ],
-  },
-  {
-    name: 'Community Initiatives',
-    description: 'Impactful projects promoting social engagement and well-being in local communities.',
-    projects: [
-      {
-        name: 'Akthe',
-        url: 'https://akthe.vercel.app',
-        description: 'An aktivitetsbasert helsehjelp (activity-based healthcare) platform providing solutions focused on engaging individuals in meaningful activities to promote health and well-being.',
-      },
-      {
-        name: 'Låne Lageret',
-        url: 'https://laanelageret.vercel.app',
-        description: 'A Bua-inspired concept for Akthe, Låne Lageret is a community-driven initiative that provides a lending library for tools, equipment, and resources. Designed to promote sustainability and accessibility, this platform allows individuals to borrow items for their projects, fostering collaboration and reducing waste within the Akthe community.',
-      },
-      {
-        name: 'Studio 51',
-        url: 'https://studio51.vercel.app',
-        description: 'Also known as Rap Clinic, Studio 51 is a municipal initiative in Bærum kommune that uses music as a medium for identity formation and social participation, particularly targeting individuals dealing with mental health and substance abuse challenges.',
-      },
-      {
-        name: 'Høl i CVen',
-        url: 'https://holicven.vercel.app',
-        description: 'A coffee shop initiative under Akthe, providing employment opportunities and support for individuals in need, aiming to integrate them into the workforce and community.',
-      },
-      {
-        name: 'Prima',
-        url: 'https://prima-vr.vercel.app',
-        description: 'A platform offering VR experiences aimed at enhancing the lifestyle and wellness of older adults.',
-      },
-      {
-        name: 'Sandvika Platemesse',
-        url: 'https://sandvikaplatemesse.no',
-        description: 'A vibrant vinyl record fair held on May 10-11 at Kadettangen 18, featuring music, culture, and community spirit. Organized by Høl i CVen, it offers live performances by artists like LIORA, a fresh tea stand, and an afterparty, creating a nostalgic and engaging local experience.',
-      },
-    ],
-  },
-  {
-    name: 'Travel',
-    description: 'Cost of living guides for travel and relocation across Europe.',
-    projects: [
-      {
-        name: 'Cost of Living',
-        url: 'https://costofliving.no',
-        description: 'Comprehensive guide to cost of living in 50+ European countries and 210+ cities. Includes rent prices, food costs, transport, and local insights for budget travelers and digital nomads.',
-      },
-    ],
-  },
-  {
-    name: 'Activity',
-    description: 'Activity guides and resources for outdoor adventures and recreation.',
-    projects: [
-      {
-        name: 'NordFisk',
-        url: 'https://designrpros.github.io/nordfisk/',
-        description: 'Comprehensive fishing guide for Norway. Explore fishing spots, techniques, and local insights for both saltwater and freshwater fishing across all regions of Norway.',
-      },
-    ],
-  },
-  {
-    name: 'Games',
-    description: 'Interactive gaming experiences built for macOS and iOS.',
-    projects: [
-      {
-        name: 'The Lineup',
-        url: 'https://thelineup.world',
-        description: 'Surf the 100 best waves on Earth. A surf simulator and travel game with live weather data over every spot. Features 5 break types (Point, Reef, Beach, Slab, Big Wave) across 28 countries, Sessions mode, Live Forecast, Spots Dictionary, and a full Surf & Travel career mode. Coming soon to macOS and iOS.',
-      },
-    ],
-  },
+const projects = [
+  { name: 'Peak Browser', category: 'Apps', url: 'https://www.peakbrowser.app/', description: 'A native browser workspace for Mac, iPhone, and iPad: browsing, notes, boards, whiteboards, and optional AI in one place.', tag: 'Native workspace' },
+  { name: 'Free Flow', category: 'Apps', url: 'https://freeflow-freestyle.vercel.app/', description: 'A digital freestyle and lyricism partner for rappers, poets, and songwriters, with tools to spark ideas and find words.', tag: 'Creative tool' },
+  { name: 'Mapr Atlas', category: 'Apps', url: 'https://apps.apple.com/no/app/mapr-atlas/id6752829712?l=nb', description: 'An interactive world atlas for exploring economic, market, and demographic data, with a contextual AI assistant and practical converters.', tag: 'World data' },
+  { name: 'Mapr', category: 'Apps', url: 'https://mapr-homepage.vercel.app/', description: 'A toolkit for tradespeople: map-based projects, time tracking, planning, materials, calculators, and a professional community.', tag: 'Tools for the trade' },
+  { name: 'TextClip', category: 'Apps', url: 'https://apps.apple.com/no/app/textclip/id6746357735?mt=12', description: 'A Mac utility that captures a region of the screen, recognizes its text, and copies it to the clipboard; the App Store describes its OCR as offline.', tag: 'Mac utility' },
+  { name: 'WebDesign.Theory', category: 'Learning Resources', url: 'https://designrpros.github.io/WEBDESIGN.THEORY/', description: 'A visual introduction to design systems and styles, with examples, code snippets, and core principles.', tag: 'Learn by exploring' },
+  { name: 'Berentsen Labs', category: 'Creative Portfolios', url: 'https://berentsenlabs.no/', description: 'A web and AI development studio presenting its services, approach, and project work.', tag: 'Studio' },
+  { name: 'Studio 51', category: 'Community Initiatives', url: 'https://studio51.vercel.app/', description: 'A Bærum community music space built around creativity, belonging, and personal growth.', tag: 'Music & community' },
+  { name: 'Høl i CV’en', category: 'Community Initiatives', url: 'https://holicven.vercel.app/', description: 'A community café and work-training initiative in Sandvika, centred on coffee, inclusion, and recovery.', tag: 'Coffee & community' },
+  { name: 'Sandvika Platemesse', category: 'Community Initiatives', url: 'https://sandvikaplatemesse.no/', description: 'A local vinyl fair bringing together records, artists, and the Sandvika community.', tag: 'Local culture' },
+  { name: 'Cost of Living', category: 'Travel', url: 'https://costofliving.no/', description: 'A Europe-focused cost-of-living guide with country and city information for people planning travel or relocation.', tag: 'Travel guide' },
+  { name: 'NordFisk', category: 'Activity', url: 'https://designrpros.github.io/nordfisk/', description: 'A Norwegian fishing guide with regional information, species, beginner resources, and equipment guidance.', tag: 'Outdoors' },
+  { name: 'The Lineup', category: 'Games', url: 'https://thelineup.world/', description: 'A surf simulator and travel game exploring famous waves, break types, and surf destinations around the world.', tag: 'Surf & travel' },
 ];
 
-// Styled Components (No changes needed here)
-const Wrapper = styled.div`
-  min-height: 100vh;
-  background-color: #cad9e4;
-`;
-
-const HeroSection = styled.section`
-  padding: 4rem 2rem;
-  text-align: left;
-  max-width: 1200px;
-  margin: 0 auto;
-`;
-
-const HeroTitle = styled.h1`
-  font-size: 4rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  color: #292a2d;
-  display: block;
-  @media (max-width: 1024px) {
-    font-size: 3rem;
-  }
-  @media (max-width: 768px) {
-    font-size: 2.5rem;
-  }
-  @media (max-width: 480px) {
-    font-size: 2rem;
-  }
-`;
-
-const TypewriterText = styled.span`
-  display: inline-block;
-  border-right: 3px solid #292a2d;
-  @media (max-width: 768px) {
-    border-right: 2px solid #292a2d;
-  }
-  @media (max-width: 480px) {
-    border-right: 1px solid #292a2d;
-  }
-`;
-
-const HighlightedText = styled.span`
-  background-color: #fddeb4;
-  padding: 0 0.25rem;
-`;
-
-const HeroSubtitle = styled.p`
-  font-size: 1.125rem;
-  margin-bottom: 1.5rem;
-  color: #292a2d;
-  max-width: 600px;
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
-const AuthorText = styled.p`
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #292a2d;
-  margin-bottom: 1.5rem;
-  @media (max-width: 768px) {
-    font-size: 0.75rem;
-  }
-`;
-
-const CTAButton = styled.button`
-  background-color: #fddeb4;
-  color: #292a2d;
-  font-weight: 600;
-  padding: 0.75rem 2rem;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-  &:hover {
-    transform: scale(1.05);
-  }
-  @media (max-width: 768px) {
-    padding: 0.5rem 1.5rem;
-    font-size: 0.875rem;
-  }
-`;
-
-const PortfolioSection = styled.section`
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  @media (max-width: 768px) {
-    padding: 2rem 1rem;
-  }
-`;
-
-const CategoryHeader = styled.div`
-  background-color: #e1e9f0;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  &:hover {
-    background-color: #d1dde8;
-  }
-`;
-
-const CategoryTitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 700;
-  color: #292a2d;
-  background-color: #fddeb4;
-  padding: 0.5rem 1rem;
-  display: inline-block;
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-`;
-
-const CategoryDescription = styled.p`
-  font-size: 1rem;
-  color: #292a2d;
-  margin-top: 0.5rem;
-  @media (max-width: 768px) {
-    font-size: 0.875rem;
-  }
-`;
-
-const ToggleButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 1rem;
-  color: #292a2d;
-  cursor: pointer;
-  font-weight: 600;
-`;
-
-const CategoryContent = styled.div`
-  margin-bottom: 2rem;
-`;
-
-const ProjectsContainer = styled.div`
-  padding-left: 1rem;
-  @media (max-width: 768px) {
-    padding-left: 0.5rem;
-  }
-`;
-
-const PortfolioItem = styled.div`
-  background-color: #e1e9f0;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  @media (max-width: 768px) {
-    padding: 1rem;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-`;
-
-const PortfolioItemContent = styled.div`
-  flex: 1;
-`;
-
-const PortfolioItemTitle = styled.h3`
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #292a2d;
-  background-color: #fddeb4;
-  padding: 0.25rem 0.5rem;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-  @media (max-width: 768px) {
-    font-size: 1.25rem;
-  }
-`;
-
-const PortfolioItemDescription = styled.p`
-  font-size: 1rem;
-  color: #292a2d;
-  margin-bottom: 0.5rem;
-  @media (max-width: 768px) {
-    font-size: 0.875rem;
-  }
-`;
-
-const PortfolioItemLink = styled.a`
-  color: #292a2d;
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-decoration: underline;
-  &:hover {
-    color: #fddeb4;
-  }
-  @media (max-width: 768px) {
-    font-size: 0.75rem;
-  }
-`;
-
-const Footer = styled.footer`
-  color: #292a2d;
-  text-align: center;
-  padding: 2rem;
-  margin-top: 2rem;
-  border-top: 1px solid #b0c4d1;
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
-`;
+const filters = ['All', 'Apps', 'Learning Resources', 'Creative Portfolios', 'Community Initiatives', 'Travel', 'Activity', 'Games'];
+const filterLabels: Record<string, string> = { All: 'All work', Apps: 'Apps', 'Learning Resources': 'Learning', 'Creative Portfolios': 'Studio & portfolio', 'Community Initiatives': 'Community', Travel: 'Travel', Activity: 'Outdoors', Games: 'Games' };
 
 export default function Home() {
-  const fullTitle = 'VEGAR BERENTSEN: Designer & Developer';
-  const [displayedText, setDisplayedText] = useState('');
-  const [isTyping, setIsTyping] = useState(true);
-  const [openCategories, setOpenCategories] = useState<CategoryState>(
-    projectCategories.reduce((acc, category) => ({ ...acc, [category.name]: false }), {})
-  );
+  const [typedName, setTypedName] = useState('');
+  const [typedRole, setTypedRole] = useState('');
+  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    let index = 0;
-    const typingSpeed = 100;
-
-    const type = () => {
-      if (index < fullTitle.length) {
-        setDisplayedText(fullTitle.substring(0, index + 1));
-        index++;
-        setTimeout(type, typingSpeed);
-      } else {
-        setIsTyping(false);
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setReducedMotion(prefersReduced);
+    const name = 'VEGAR BERENTSEN:';
+    const role = 'Designer & Developer';
+    if (prefersReduced) { setTypedName(name); setTypedRole(role); return; }
+    let nameIndex = 0;
+    let roleIndex = 0;
+    const nameTimer = window.setInterval(() => {
+      nameIndex += 1; setTypedName(name.slice(0, nameIndex));
+      if (nameIndex >= name.length) {
+        window.clearInterval(nameTimer);
+        let titleTimer: number;
+        const startRole = () => {
+          roleIndex += 1; setTypedRole(role.slice(0, roleIndex));
+          if (roleIndex >= role.length) window.clearInterval(titleTimer);
+        };
+        titleTimer = window.setInterval(startRole, 72);
       }
-    };
-
-    type();
-
-    return () => {
-      setDisplayedText('');
-      setIsTyping(true);
-    };
+    }, 72);
+    return () => window.clearInterval(nameTimer);
   }, []);
 
-  const toggleCategory = (categoryName: string) => {
-    setOpenCategories((prev) => ({
-      ...prev,
-      [categoryName]: !prev[categoryName],
-    }));
-  };
-
-  // New function to handle external link clicks from the portfolio
-  const handleExternalLinkClick = (categoryName: string, projectName: string, projectUrl: string) => {
-    sendGaEvent('portfolio_external_link_click', { // Custom event name
-      category_name: categoryName,                // Category of the project
-      project_name: projectName,                  // Name of the clicked project
-      link_url: projectUrl,                       // URL of the external link
-      link_text: 'Visit Project',                 // The text displayed on the link
-      link_location: 'portfolio_item',            // Context: where the click occurred
-    });
-  };
+  const visibleProjects = useMemo(() => activeFilter === 'All' ? projects : projects.filter((project) => project.category === activeFilter), [activeFilter]);
+  const project = visibleProjects[Math.min(activeIndex, visibleProjects.length - 1)];
+  const goTo = (index: number) => setActiveIndex(Math.max(0, Math.min(index, visibleProjects.length - 1)));
 
   return (
-    <Wrapper>
-      {/* Hero Section */}
-      <HeroSection>
-        <HeroTitle className="font-heading">
-          <TypewriterText className="typewriter">
-            {displayedText.replace('Designer & Developer', '')}
-            {displayedText.includes('Designer & Developer') ? (
-              <span>
-                <br />
-                Designer & Developer
-              </span>
-            ) : (
-              <span> </span>
-            )}
-          </TypewriterText>
-        </HeroTitle>
-        <HeroSubtitle className="font-sans">
-          Welcome to Designr.Pro, my digital home where I showcase my skills, creativity, and dedication to app and web development.{' '}
-          <HighlightedText>Running Berentsen Labs - building AI assistants and web solutions.</HighlightedText>
-        </HeroSubtitle>
-        <AuthorText className="font-sans">Based in Østerås, Norway</AuthorText>
-        <Link href="/contact">
-          <CTAButton>Contact Me</CTAButton>
-        </Link>
-      </HeroSection>
+    <main className="page-content">
+      <section className="hero" aria-label="Introduction">
+        <h1 aria-label="Vegar Berentsen: Designer and Developer">
+          <span className="name-line">{typedName}{!reducedMotion && <span className={`cursor ${typedName.length < 16 ? 'is-active' : ''}`} aria-hidden="true" />}</span>
+          <br />
+          <span className="role">{typedRole}{!reducedMotion && <span className={`cursor ${typedName.length === 16 && typedRole.length < 20 ? 'is-active' : ''}`} aria-hidden="true" />}</span>
+        </h1>
+        <p className="intro">Welcome to Designr.Pro, my digital home where I showcase my skills, creativity, and dedication to app and web development. <mark>Running Berentsen Labs – building AI assistants and web solutions.</mark></p>
+        <p className="location">Based in Østerås, Norway</p>
+        <a className="contact-button" href="/contact">Contact Me</a>
+      </section>
 
-      {/* Portfolio Section */}
-      <PortfolioSection>
-        {projectCategories.map((category) => (
-          <CategoryContent key={category.name}>
-            <CategoryHeader onClick={() => toggleCategory(category.name)}>
-              <div>
-                <CategoryTitle className="font-heading">{category.name}</CategoryTitle>
-                <CategoryDescription className="font-sans">{category.description}</CategoryDescription>
-              </div>
-              <ToggleButton aria-label={`Toggle ${category.name} section`}>
-                {openCategories[category.name] ? 'Collapse' : 'Expand'}
-              </ToggleButton>
-            </CategoryHeader>
-            {openCategories[category.name] && (
-              <ProjectsContainer>
-                {category.projects.map((project, index) => (
-                  <PortfolioItem key={index}>
-                    <PortfolioItemContent>
-                      <PortfolioItemTitle className="font-heading">{project.name}</PortfolioItemTitle>
-                      <PortfolioItemDescription className="font-sans">{project.description}</PortfolioItemDescription>
-                      <Link href={project.url} passHref>
-                        {/* Attach onClick handler to PortfolioItemLink */}
-                        <PortfolioItemLink
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => handleExternalLinkClick(category.name, project.name, project.url)}
-                        >
-                          Visit Project
-                        </PortfolioItemLink>
-                      </Link>
-                    </PortfolioItemContent>
-                  </PortfolioItem>
-                ))}
-              </ProjectsContainer>
-            )}
-          </CategoryContent>
-        ))}
-      </PortfolioSection>
-
-      {/* Footer */}
-      <Footer>
-        <p className="font-sans">
-          © {new Date().getFullYear()} Berentsen Labs. All rights reserved.
-        </p>
-        <p className="font-sans">
-          <a href="mailto:designr.pros@gmail.com" style={{color: '#0d9488', textDecoration: 'none'}}>designr.pros@gmail.com</a> | +47 485 96 755 | Ovenbakken 31 A, Østerås, Norway
-        </p>
-        <p className="font-sans" style={{marginTop: '1rem'}}>
-          <a href="/privacy-policy" style={{color: '#0d9488', marginRight: '1rem'}}>Privacy Policy</a>
-          <a href="/terms-of-service" style={{color: '#0d9488'}}>Terms of Service</a>
-        </p>
-      </Footer>
-    </Wrapper>
+      <section className="work-panel journey" id="work" aria-labelledby="journey-title">
+        <div className="journey-heading">
+          <p className="journey-kicker">Selected work · {projects.length} projects</p>
+          <h2 id="journey-title">A journey through<br />things I’ve made.</h2>
+          <p className="journey-lede">Apps, useful websites, and community projects — follow a chapter or browse by kind.</p>
+        </div>
+        <div className="journey-filters" role="group" aria-label="Filter projects by category">
+          {filters.map((filter) => <button key={filter} type="button" className={`filter-chip ${activeFilter === filter ? 'is-active' : ''}`} aria-pressed={activeFilter === filter} onClick={() => { setActiveFilter(filter); setActiveIndex(0); }}>{filterLabels[filter]}</button>)}
+        </div>
+        <div className="journey-layout">
+          <nav className="journey-nav" aria-label="Projects in this journey">
+            {visibleProjects.map((item, index) => <button key={item.name} type="button" className={`journey-stop ${index === activeIndex ? 'is-active' : ''}`} aria-current={index === activeIndex ? 'step' : undefined} onClick={() => goTo(index)}><span className="stop-number">{String(index + 1).padStart(2, '0')}</span><span className="stop-name">{item.name}</span></button>)}
+          </nav>
+          {project && <div className="journey-main">
+            <article className="project-chapter" key={project.name} aria-live="polite">
+              <div className="chapter-copy"><p className="chapter-tag">{project.category}<span>·</span>{project.tag}</p><h3>{project.name}</h3><p className="chapter-description">{project.description}</p><a className="chapter-link" href={project.url} target="_blank" rel="noopener noreferrer">Visit {project.name}<span aria-hidden="true">↗</span></a></div>
+            </article>
+            <div className="journey-controls"><button type="button" onClick={() => goTo(activeIndex - 1)} disabled={activeIndex === 0}>← Previous</button><span className="journey-count" aria-live="polite">{String(activeIndex + 1).padStart(2, '0')} / {String(visibleProjects.length).padStart(2, '0')}</span><button type="button" onClick={() => goTo(activeIndex + 1)} disabled={activeIndex === visibleProjects.length - 1}>{activeIndex === visibleProjects.length - 1 ? 'End of this journey' : 'Next project →'}</button></div>
+          </div>}
+        </div>
+        <p className="journey-note">A selection of apps, websites, and community projects.</p>
+      </section>
+      <footer className="site-footer"><span>© Vegar Berentsen</span><a href="/contact">Contact</a></footer>
+    </main>
   );
 }
