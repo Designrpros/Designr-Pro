@@ -1,110 +1,20 @@
-'use client';
-
-import styled from 'styled-components';
-
-// Styled components
-const AboutContainer = styled.div`
-  padding: 50px 20px;
-  background-color: #cad9e4; /* Soft blue-gray background */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Align items to the left */
-  max-width: 1200px;
-  margin: 0 auto;
-  width: calc(100% - 40px); /* Account for 20px padding on each side */
-  box-sizing: border-box;
-  @media (max-width: 768px) {
-    padding: 30px 10px; /* Reduce padding on smaller screens */
-    width: calc(100% - 20px); /* Adjust for smaller padding */
-  }
-`;
-
-const AboutTitle = styled.h1`
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #292a2d; /* Black text */
-  background-color: #fddeb4; /* Tinted yellow background */
-  padding: 0.5rem 1rem;
-  display: inline-block;
-  margin-bottom: 2rem;
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
-`;
-
-const Section = styled.section`
-  margin-bottom: 2rem;
-  width: 100%;
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #292a2d; /* Black text */
-  background-color: #fddeb4; /* Tinted yellow background */
-  padding: 0.5rem 1rem;
-  display: inline-block;
-  margin-bottom: 1rem;
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-`;
-
-const SectionContent = styled.div`
-  background-color: #e1e9f0; /* Tinted blue background */
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const BioText = styled.p`
-  font-size: 1rem;
-  color: #292a2d; /* Black text */
-  line-height: 1.6;
-  margin-bottom: 1rem;
-`;
-
 export default function About() {
   return (
-    <AboutContainer>
-      <AboutTitle className="font-heading">About Me</AboutTitle>
-
-      {/* Bio Section */}
-      <Section>
-        <SectionTitle className="font-heading">Who I Am</SectionTitle>
-        <SectionContent>
-          <BioText>
-            I specialize in building dynamic and interactive web experiences using technologies like React and SwiftUI. My journey in tech has been complemented by diverse experiences, from working as an electrician at Bærum Elektropartner AS to teaching sailing at Bærum Seilforening, which have taught me the value of precision, adaptability, and collaboration.
-          </BioText>
-        </SectionContent>
-      </Section>
-
-      {/* About Designr.Pro Section */}
-      <Section>
-        <SectionTitle className="font-heading">About Designr.Pro</SectionTitle>
-        <SectionContent>
-          <BioText>
-            Designr.Pro is my digital home, a space where I showcase my skills, creativity, and dedication to app and web development. Built with React and Next.js, this site serves as both a personal portfolio and a playground for exploring modern web technologies.
-          </BioText>
-          <BioText>
-            It is a space where new ideas are born, tested, and refined. From building apps like Mapr and Peak to creating platforms for local initiatives, Designr.Pro reflects my commitment to innovation and design excellence. Through Berentsen Labs, I help businesses and individuals leverage AI assistants and web solutions.
-          </BioText>
-        </SectionContent>
-      </Section>
-
-      {/* Work Philosophy Section */}
-      <Section>
-        <SectionTitle className="font-heading">Work Philosophy</SectionTitle>
-        <SectionContent>
-          <BioText>
-            I believe in the power of design to solve real-world problems and enhance user experiences. My approach is user-centered, focusing on creating solutions that are not only functional but also visually appealing and intuitive.
-          </BioText>
-          <BioText>
-            I'm passionate about continuous learning and experimentation, which is why I use Designr.Pro as a testing ground for new ideas and technologies. Whether I'm building a web app, designing a VR experience, or contributing to community initiatives, my goal is to make a positive impact through thoughtful design and development.
-          </BioText>
-        </SectionContent>
-      </Section>
-    </AboutContainer>
+    <main className="page-content subpage">
+      <p className="eyebrow">A little about me</p>
+      <h1>Designing and building<br />useful things.</h1>
+      <p className="lead">I’m Vegar Berentsen, a designer and developer based in Østerås, Norway. I work across apps and the web, bringing thoughtful design and practical technology together.</p>
+      <section className="page-card">
+        <h2>What I do</h2>
+        <p>I build apps and web experiences, and run Berentsen Labs, where I work on AI assistants and web solutions. My projects range from personal tools and learning resources to community-focused websites.</p>
+        <p>My background also includes electrical work and sailing instruction—experiences that shaped a practical approach to problem-solving, precision, and collaboration.</p>
+      </section>
+      <section className="page-card">
+        <h2>How I work</h2>
+        <p>I like to make ideas tangible: understand the need, explore the experience, build a working version, and refine it through use. Designr.pro is my digital home for sharing those experiments and finished projects.</p>
+        <a className="text-link" href="/#work">Explore the apps and websites <span aria-hidden="true">→</span></a>
+      </section>
+      <footer className="site-footer"><span>© Vegar Berentsen</span><a href="/contact">Get in touch</a></footer>
+    </main>
   );
 }
