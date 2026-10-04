@@ -1,0 +1,38 @@
+/* Portfolio project journey */
+.work-panel.journey{background:#e1e9f0;border-radius:16px;padding:clamp(26px,4.5vw,64px);min-height:0;overflow:hidden;margin:clamp(24px,5vw,72px) auto 0;width:min(100% - 32px,1200px)}
+.journey-heading{max-width:720px;margin:0 0 32px}
+.journey-kicker,.chapter-tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin:0 0 16px;color:#607585}
+.journey-heading h2{font-family:Baskerville,'Times New Roman',serif;font-size:clamp(42px,6vw,72px);font-weight:400;line-height:.98;letter-spacing:-.045em;margin:0 0 15px}
+.journey-lede{font-size:17px;line-height:1.5;color:#45484b;margin:0;max-width:560px}
+.journey-filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.filter-chip{appearance:none;border:1px solid rgba(41,42,45,.24);background:transparent;color:#34383a;border-radius:999px;padding:9px 14px;font:inherit;font-size:13px;line-height:1.1;cursor:pointer;transition:background .18s,color .18s,border-color .18s}
+.filter-chip:hover,.filter-chip.is-active{background:#292a2d;color:#fff;border-color:#292a2d}
+.journey-layout{display:grid;grid-template-columns:minmax(220px,.65fr) minmax(0,1.7fr);gap:clamp(24px,4vw,58px);align-items:start;border-top:1px solid rgba(41,42,45,.16);padding-top:22px}
+.journey-nav{display:grid;grid-template-columns:1fr;gap:0;max-height:570px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.journey-stop{display:grid;grid-template-columns:34px minmax(0,1fr);gap:8px;align-items:center;text-align:left;border:0;border-bottom:1px solid rgba(41,42,45,.12);padding:11px 8px;background:transparent;color:#596166;font:inherit;cursor:pointer;min-height:43px;transition:color .18s,background .18s}
+.journey-stop:hover,.journey-stop.is-active{color:#22272a;background:rgba(255,255,255,.5)}
+.journey-stop.is-active{box-shadow:inset 2px 0 #578eaa}
+.stop-number{font-size:10px;letter-spacing:.06em;color:#82909a}
+.stop-name{font-family:Baskerville,'Times New Roman',serif;font-size:18px;line-height:1.1}
+.journey-main{min-width:0}
+.project-chapter{min-height:300px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(20px,3.5vw,44px);background:#f8fafb;border-radius:12px;animation:chapter-enter .28s ease both}
+@keyframes chapter-enter{from{opacity:.55;transform:translateY(5px)}to{opacity:1;transform:none}}
+.chapter-copy{max-width:600px}
+.chapter-tag{margin-bottom:14px;letter-spacing:.09em}
+.chapter-tag span{margin:0 5px;color:#9aa5ab}
+.chapter-copy h3{font-family:Baskerville,'Times New Roman',serif;font-size:clamp(34px,4vw,54px);font-weight:400;line-height:1;letter-spacing:-.035em;margin:0 0 15px;color:#292a2d}
+.chapter-description{font-size:16px;line-height:1.6;color:#45484b;max-width:570px;margin:0 0 24px}
+.chapter-link{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;background:#fddeb4;color:#292a2d;text-decoration:none;font-size:14px;font-weight:700;border-radius:3px}
+.chapter-link:hover{background:#f4cf9e}
+.chapter-link span{margin-left:6px}
+.peak-film{width:min(100%,820px);margin:28px 0 0}
+.peak-film video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#202326;border:1px solid rgba(41,42,45,.13);border-radius:8px}
+.peak-film figcaption{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#71808a;margin-top:9px}
+.journey-controls{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid rgba(41,42,45,.16);margin-top:18px;padding-top:12px}
+.journey-controls button{appearance:none;border:0;background:transparent;padding:10px 4px;min-height:44px;font:inherit;font-size:13px;font-weight:700;color:#292a2d;cursor:pointer}
+.journey-controls button:disabled{opacity:.38;cursor:default}
+.journey-count{font-size:11px;color:#68747b;letter-spacing:.1em;white-space:nowrap}
+.journey-note{font-size:11px;line-height:1.4;color:#68747b;margin:19px 0 0}
+@media(max-width:760px){.work-panel.journey{width:calc(100% - 24px);padding:26px 20px 22px}.journey-heading{margin-bottom:25px}.journey-heading h2{font-size:clamp(40px,10vw,58px)}.journey-lede{font-size:15px}.journey-filters{gap:7px;margin-bottom:18px}.filter-chip{font-size:12px;padding:9px 11px}.journey-layout{grid-template-columns:1fr;gap:14px;padding-top:16px}.journey-nav{display:flex;flex-flow:row wrap;max-height:none;gap:6px;overflow:visible}.journey-stop{display:flex;flex:0 0 auto;gap:6px;min-height:38px;padding:7px 10px;border:1px solid rgba(41,42,45,.16);border-radius:999px;background:rgba(255,255,255,.22)}.journey-stop.is-active{box-shadow:none;border-color:#578eaa;background:#f8fafb}.stop-name{font-family:Arial,Helvetica,sans-serif;font-size:12px}.stop-number{font-size:9px}.project-chapter{min-height:260px;padding:23px 19px}.chapter-copy h3{font-size:39px}.chapter-description{font-size:15px}.peak-film{margin-top:22px}.journey-controls{margin-top:14px}}
+@media(max-width:420px){.work-panel.journey{padding-inline:16px}.journey-filters{gap:6px}.filter-chip{padding:8px 10px}.journey-controls button{font-size:12px}.journey-controls{gap:5px}}
+@media(prefers-reduced-motion:reduce){.project-chapter{animation:none}.filter-chip,.journey-stop{transition:none}}
