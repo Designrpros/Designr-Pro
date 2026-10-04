@@ -40,11 +40,11 @@ The scripts and dependency versions are defined in `package.json`; use `npm ci` 
 
 ## Site routes
 
-- `/` — portfolio homepage and project categories
+- `/` — portfolio homepage with a typewriter introduction and a filterable journey through selected projects
 - `/about` — about Vegar and his approach to design and development
 - `/contact` — contact information and contact form
-- `/cv` — curriculum vitae
-- `/gallery` — photo gallery
+- `/cv` — CV information with a request-by-email option; the page is not password-protected
+- `/gallery` — responsive photo gallery
 - `/blog` and `/blog/[slug]` — blog posts
 - `/news` and `/news/[slug]` — news posts
 - `/privacy-policy` — privacy policy
