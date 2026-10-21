@@ -1,13 +1,13 @@
 import './globals.css';
 import type { Metadata, Viewport } from 'next';
-import { Inter, Montserrat, Italianno } from 'next/font/google';
+import { Inter, Fraunces, Italianno } from 'next/font/google';
 import StyledComponentsRegistry from './lib/registry';
 import NavBar from '../components/NavBar';
 import { defaultDescription, ogImage, personJsonLd, siteName, siteUrl, websiteJsonLd } from './seo';
 
 const italianno = Italianno({ weight: '400', subsets: ['latin'], variable: '--font-italianno' });
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700', '800'], variable: '--font-montserrat' });
+const fraunces = Fraunces({ subsets: ['latin'], style: ['normal', 'italic'], axes: ['opsz', 'SOFT'], variable: '--font-fraunces' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -37,13 +37,13 @@ export const viewport: Viewport = { themeColor: '#cad9e4' };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${italianno.variable}`}>
       <head>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNHYEQRBJM" />
         <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-BNHYEQRBJM');` }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([websiteJsonLd, personJsonLd]) }} />
       </head>
-      <body className={`${inter.variable} ${montserrat.variable} ${italianno.variable}`}>
+      <body>
         <StyledComponentsRegistry>
           <NavBar />
           {children}
