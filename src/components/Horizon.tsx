@@ -41,7 +41,7 @@ export default function Horizon() {
       </div>
       <div className="wrap horizon-copy">
         <h1 className="horizon-name" aria-label="Vegar Berentsen, designer and developer">
-          <span>Vegar</span>
+          <span>Vegar</span>{" "}
           <span className="last solid">Berentsen</span>
         </h1>
         <div className="horizon-meta">
